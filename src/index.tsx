@@ -1,7 +1,16 @@
+// Bootstrap styles
+import 'bootstrap/scss/bootstrap.scss';
+import $ from 'jquery';
+import Popper from "popper.js";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+// Custom Sass style
+import './assets/sass/variables.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './containers/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

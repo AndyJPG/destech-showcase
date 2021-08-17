@@ -1,0 +1,10 @@
+@import 'src/assets/sass/variables';
+
+.navbar {
+  color: $secondary;
+  border: 1px solid $secondary;
+
+  .navbar-brand {
+    border: 1px solid red;
+  }
+}
