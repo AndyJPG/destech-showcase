@@ -1,10 +1,39 @@
 @import 'src/assets/sass/variables';
 
 .navbar {
-  color: $secondary;
-  border: 1px solid $secondary;
+  border: 1px solid blue;
+  padding: 1rem;
 
+  // Logo
   .navbar-brand {
-    border: 1px solid red;
+    //border: 1px solid red;
+  }
+
+  .destech-logo {
+    width: 50px;
+  }
+
+  // Menu Items
+  .nav-link {
+    text-transform: uppercase;
+    color: $secondary;
+    font-weight: 500;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.navbar-expand-lg {
+
+  .navbar-nav {
+
+    .nav-link {
+      @media (min-width: 992px) {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+    }
   }
 }
