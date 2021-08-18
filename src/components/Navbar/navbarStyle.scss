@@ -1,38 +1,43 @@
 @import 'src/assets/sass/variables';
 
-.navbar {
+.nav-container {
   border: 1px solid blue;
-  padding: 1rem;
 
-  // Logo
-  .navbar-brand {
-    //border: 1px solid red;
-  }
+  .navbar {
+    width: 100%;
+    border: 1px solid blue;
+    padding: 1rem 0;
 
-  .destech-logo {
-    width: 50px;
-  }
+    // Logo
+    .navbar-brand {
+      //border: 1px solid red;
+    }
 
-  // Menu Items
-  .nav-link {
-    text-transform: uppercase;
-    color: $secondary;
-    font-weight: 500;
+    .destech-logo {
+      width: 50px;
+    }
 
-    &:hover {
-      color: $primary;
+    // Menu Items
+    .nav-link {
+      text-transform: uppercase;
+      color: $secondary;
+      font-weight: 500;
+
+      &:hover {
+        color: $primary;
+      }
     }
   }
-}
 
-.navbar-expand-lg {
+  .navbar-expand-lg {
 
-  .navbar-nav {
+    .navbar-nav {
 
-    .nav-link {
-      @media (min-width: 992px) {
-        padding-right: 1rem;
-        padding-left: 1rem;
+      .nav-link {
+        @media (min-width: 992px) {
+          padding-right: 1rem;
+          padding-left: 1rem;
+        }
       }
     }
   }
