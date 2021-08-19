@@ -1,0 +1,75 @@
+@import "src/assets/sass/variables";
+
+.background-container {
+  background: $secondary;
+  color: white;
+  padding-top: 5.5rem;
+  padding-bottom: 4rem;
+
+  div {
+    border: 1px solid white;
+  }
+
+  .content-container {
+    position: relative;
+    border: 1px solid white;
+
+    @media (min-width: 992px) {
+      padding: 0 5rem;
+    }
+
+    .float-element {
+      border: 1px solid white;
+      position: absolute;
+      right: 0;
+      top: -2rem;
+      width: 15%;
+      height: 150px;
+    }
+
+    #chairman-info {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+
+      #info-separator {
+        border-top: 2px solid white;
+        opacity: 1;
+        width: 20%;
+      }
+
+      #chairman-name {
+        font-size: 1.2rem;
+      }
+
+      #chairman-title {
+        text-transform: capitalize;
+        letter-spacing: 0.1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .section-info {
+
+       @media (min-width: 992px) {
+         padding: 0 3rem;
+
+         .section-title {
+           width: 80%;
+         }
+       }
+
+      .section-title {
+        text-transform: uppercase;
+        border: 1px solid white;
+        letter-spacing: 0.2rem;
+        line-height: 2.5rem;
+      }
+
+      .section-content {
+        border: 1px solid white;
+        padding: 2.5rem 0;
+        letter-spacing: 0.1rem;
+      }
+    }
+  }
+}
