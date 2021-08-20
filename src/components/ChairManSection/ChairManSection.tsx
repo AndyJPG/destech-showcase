@@ -20,26 +20,31 @@ function ChairManSection() {
     return (
         <div className="background-container container-fluid">
             <div className="content-container container-lg">
-                <div className="float-element">
-                    <img src="" alt="float cube" />
-                </div>
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-12 col-lg-4">
                         <div className="row">
-                            <div className="col-lg-12">
+                            <div className="col-6 col-sm-4 col-lg-12">
                                 <img className="img-fluid" src="/assets/img/hero-image.jpg" alt="Chair man picture" />
                             </div>
-                            <div id="chairman-info" className="col-lg-12">
+                            <div id="chairman-info" className="col-6 col-sm-4 col-lg-12">
                                 <p id="chairman-name">{sectionInfo.chairManName}</p>
                                 <hr id="info-separator" />
                                 <p id="chairman-title">{sectionInfo.chairManTitle}</p>
                             </div>
                         </div>
                     </div>
-                    <div className="col-8 section-info">
+                    <div className="col-12 col-lg-8 section-info">
                         <h2 className="section-title">{sectionInfo.sectionTitle}</h2>
                         <p className="section-content">{sectionInfo.sectionContent}</p>
-                        {/*  TODO: Implement Read message button  */}
+                        <div className="animate-btn">
+                            <div id="animate-element" className="align-middle">
+                                <img src="" alt="animate element" />
+                            </div>
+                            <a id="read-message-btn" className="align-middle" href="#">read message</a>
+                        </div>
+                    </div>
+                    <div className="float-element">
+                        <img src="" alt="float cube" />
                     </div>
                 </div>
             </div>
