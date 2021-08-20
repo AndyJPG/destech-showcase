@@ -14,6 +14,7 @@ function SectionContainer(props: Props) {
                     <img className="section-title-element align-middle" src="" alt="title element" />
                     <h3 className="section-title align-middle">{props.sectionTitle}</h3>
                 </div>
+                {props.children ? props.children : null}
             </div>
         </div>
     )

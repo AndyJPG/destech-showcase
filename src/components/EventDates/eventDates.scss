@@ -1,0 +1,17 @@
+.events-container {
+
+  .event-item {
+    border: none;
+    margin-bottom: 1rem;
+
+    p:first-child {
+      margin-bottom: 0.2rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+}
