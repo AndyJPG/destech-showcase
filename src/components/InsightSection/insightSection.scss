@@ -1,0 +1,22 @@
+.insights-container {
+  div {
+    border: 1px solid forestgreen;
+  }
+
+  .card {
+    padding: 1rem 1rem;
+
+    @media (min-width: 992px) {
+      padding: 2rem 2rem;
+    }
+
+    .card-img-top {
+      border-radius: 0;
+    }
+
+    .card-title {
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+    }
+  }
+}

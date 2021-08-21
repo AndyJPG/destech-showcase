@@ -1,10 +1,10 @@
 @import 'src/assets/sass/variables';
 
 .section-container {
-  border: 1px solid orange;
+  border: 1px solid cornflowerblue;
 
   div {
-    border: 1px solid orange;
+    border: 1px solid cornflowerblue;
   }
 
   .content-container {
@@ -12,18 +12,18 @@
     margin-bottom: 4rem;
 
     .section-title-container {
-      border: 1px solid orange;
+      border: 1px solid cornflowerblue;
       margin-bottom: 2rem;
 
       .section-title-element {
-        border: 1px solid orange;
+        border: 1px solid cornflowerblue;
         display: inline-block;
       }
 
       .section-title {
         margin: 0;
         display: inline-block;
-        border: 1px solid orange;
+        border: 1px solid cornflowerblue;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
       }
