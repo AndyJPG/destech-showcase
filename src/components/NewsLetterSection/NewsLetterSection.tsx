@@ -1,5 +1,6 @@
 import './newsLetterSection.scss';
 import * as React from 'react';
+import GeometryShape from "../GeometryShape/GeometryShape";
 
 function NewsLetterSection() {
     return (
@@ -17,14 +18,10 @@ function NewsLetterSection() {
                 </div>
             </div>
             <div className="two-shape-container">
-                <div className="shape-container">
-                    <div className="img-container"
-                         style={{ background: "url('assets/img/hero-image.jpg')",
-                             backgroundSize: "auto 100%",
-                             backgroundRepeat: "no-repeat",
-                             backgroundPosition: "center"}}>
-                    </div>
-                </div>
+                <GeometryShape
+                    img="assets/img/hero-image.jpg"
+                    thumbnailTitle="Overview" />
+
                 <div className="shape-container">
                     <span className="shape-before" />
                     img2

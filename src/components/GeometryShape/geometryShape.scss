@@ -1,0 +1,56 @@
+@import "src/assets/sass/variables";
+
+.shape-container {
+
+  //TODO: Change shape size based on screen ratio
+
+  $shape-size: 14rem;
+  $one-half-shape-size: calc( #{$shape-size} / 2 );
+  $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+  $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+  position: relative;
+  width: $shape-size;
+  height: $shape-size;
+
+  .shape-before {
+    position: absolute;
+    top: 0;
+    left: $neg-one-fourth-shape-size;
+    border-top: $one-half-shape-size solid transparent;
+    border-bottom: $one-half-shape-size solid transparent;
+    border-right: $one-fourth-shape-size solid $primary;
+  }
+
+  .shape-after {
+    position: absolute;
+    top: 0;
+    right: $neg-one-fourth-shape-size;
+    border-top: $one-half-shape-size solid transparent;
+    border-bottom: $one-half-shape-size solid transparent;
+    border-left: $one-fourth-shape-size solid $primary;
+  }
+
+  .img-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: $neg-one-fourth-shape-size;
+    width: calc( #{$shape-size} + #{$one-half-shape-size});
+    clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
+  }
+
+  .thumbnail-title {
+    position: absolute;
+    bottom: 0;
+    left: $neg-one-fourth-shape-size;
+    width: calc( #{$shape-size} + #{$one-half-shape-size});
+    padding: 0 $one-fourth-shape-size;
+    height: $one-fourth-shape-size;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
+  }
+}
