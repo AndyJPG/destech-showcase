@@ -4,8 +4,8 @@ import GeometryShape from "../GeometryShape/GeometryShape";
 
 function NewsLetterSection() {
     return (
-        <div className="newsletter-container">
-            <div className="shape-container">
+        <div className="row newsletter-container">
+            <div className="col-lg-3">
                 <div className="img-container"
                      style={{ background: "url('assets/img/hero-image.jpg')",
                          backgroundSize: "auto 100%",
@@ -17,7 +17,7 @@ function NewsLetterSection() {
                 {/*    TODO: configure shapes*/}
                 </div>
             </div>
-            <div className="two-shape-container">
+            <div className="col-lg-3 two-shape-container">
                 <GeometryShape
                     img="assets/img/hero-image.jpg"
                     thumbnailTitle="Overview" />
@@ -28,10 +28,10 @@ function NewsLetterSection() {
                     <span className="shape-after" />
                 </div>
             </div>
-            <div className="shape-container newsletter-shape">
-                <span className="shape-before" />
-                newsletter
-                <span className="shape-after" />
+            <div className="col-lg-6 newsletter-shape">
+                <GeometryShape
+                    title="Enter your email to subscribe to our Newsletter *"
+                    fullWidth={true} />
             </div>
         </div>
     )
