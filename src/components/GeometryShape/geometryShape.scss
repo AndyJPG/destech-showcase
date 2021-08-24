@@ -66,11 +66,11 @@
 
   // Styling for input area
   $shape-form-padding-lr: 0.8rem;
-  $shape-form-font-size: 2rem;
-  $shape-form-shape-one-half: calc(50px / 2);
+  $shape-form-font-size: 1.5rem;
+  $shape-form-shape-one-half: calc(38px / 2);
 
   .shape-container-input {
-    $padding-top: 2rem;
+    $padding-top: 1rem;
 
     padding: $padding-top $shape-form-padding-lr 0 $shape-form-padding-lr;
     position: relative;
@@ -109,11 +109,32 @@
 
   // Styling for submit button
   .shape-container-button {
-    $padding-lr: 1rem;
-
+    padding: 1rem $shape-form-padding-lr 0 $shape-form-padding-lr;
     display: inline-block;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      border-top: calc(50px / 2) solid transparent;
+      border-bottom: calc(50px / 2) solid transparent;
+      border-right: $shape-form-padding-lr solid white;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      border-top: calc(50px / 2) solid transparent;
+      border-bottom: calc(50px / 2) solid transparent;
+      border-left: $shape-form-padding-lr solid white;
+    }
 
     button {
+      height: 50px;
       font-weight: 600;
       background: white;
       color: $primary;
