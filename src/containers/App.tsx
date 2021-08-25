@@ -8,6 +8,7 @@ import SectionContainer from "../components/SectionContainer/SectionContainer";
 import EventDates from "../components/EventDates/EventDates";
 import InsightSection from "../components/InsightSection/InsightSection";
 import NewsLetterSection from "../components/NewsLetterSection/NewsLetterSection";
+import Footer from "../components/Footer/Footer";
 
 class App extends React.Component<any, any>{
     render(): React.ReactNode {
@@ -25,6 +26,7 @@ class App extends React.Component<any, any>{
                 <SectionContainer>
                     <NewsLetterSection/>
                 </SectionContainer>
+                <Footer/>
             </div>
         )
     }

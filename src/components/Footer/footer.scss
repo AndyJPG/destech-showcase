@@ -1,0 +1,29 @@
+@import "src/assets/sass/variables";
+
+.footer {
+  background: $secondary;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+
+  div {
+    border: 1px solid yellowgreen;
+  }
+
+  p {
+    letter-spacing: 0.1rem;
+  }
+
+  .logo-container {
+    padding: 1rem 2rem 2rem 2rem;
+    text-align: right;
+
+    img {
+      max-width: 12rem;
+
+      &:last-child {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
