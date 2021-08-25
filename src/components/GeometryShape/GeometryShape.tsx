@@ -4,6 +4,7 @@ import * as React from 'react';
 type Props = {
     title?: string,
     thumbnailTitle?: string,
+    url?: string,
     img?: string,
     fullWidth?: boolean,
     input?: boolean
@@ -16,12 +17,28 @@ type ShapeContainerStyle = {
 
 function GeometryShape(props: Props) {
 
+    let thumbnailTitleComponent = null;
+
     let shapeContainerStyle: ShapeContainerStyle = {
         backgroundColor: props.img ? "transparent" : "#f2752e"
     };
 
     if (props.fullWidth) {
         shapeContainerStyle.width = "100%";
+    }
+
+    if (props.thumbnailTitle) {
+        if (props.url) {
+            thumbnailTitleComponent =
+                <div className="thumbnail-title">
+                    <a href={props.url}>{ props.thumbnailTitle }</a>
+                </div>;
+        } else {
+            thumbnailTitleComponent =
+                <div className="thumbnail-title">
+                    { props.thumbnailTitle }
+                </div>;
+        }
     }
 
     return (
@@ -38,12 +55,7 @@ function GeometryShape(props: Props) {
                     </div> : null
             }
 
-            {
-                props.thumbnailTitle ?
-                    <div className="thumbnail-title">
-                        { props.thumbnailTitle }
-                    </div> : null
-            }
+            { thumbnailTitleComponent }
 
             {
                 props.title ?

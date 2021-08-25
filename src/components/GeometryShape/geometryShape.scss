@@ -2,7 +2,7 @@
 
 .shape-container {
 
-  //TODO: Change shape size based on screen ratio
+  //TODO: Change shape width based on screen ratio
 
   // Overall styling for shape container
   $shape-size: 14rem;
@@ -14,6 +14,7 @@
   width: calc(#{$shape-size} * 0.75);
   height: $shape-size;
   color: white;
+  margin: 1.5rem auto;
 
   .shape-before {
     position: absolute;
@@ -46,6 +47,7 @@
 
   // Styling for thumbnail title when image is in place
   .thumbnail-title {
+    text-transform: uppercase;
     position: absolute;
     bottom: 0;
     left: $neg-one-fourth-shape-size;
@@ -57,6 +59,11 @@
     color: white;
     text-align: center;
     clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 
   // Styling for title in shape container

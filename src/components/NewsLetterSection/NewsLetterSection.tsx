@@ -4,34 +4,19 @@ import GeometryShape from "../GeometryShape/GeometryShape";
 
 function NewsLetterSection() {
     return (
-        <div className="row newsletter-container">
-            <div className="col-lg-3">
-                <div className="img-container"
-                     style={{ background: "url('assets/img/hero-image.jpg')",
-                         backgroundSize: "auto 100%",
-                         backgroundRepeat: "no-repeat",
-                         backgroundPosition: "center"}}>
-                </div>
-                <div className="shape-container-title">
-                    overview & design themes
-                {/*    TODO: configure shapes*/}
-                </div>
+        <div className="row newsletter-container align-items-center justify-content-center">
+            <div className="col-lg-auto">
+                <GeometryShape img="assets/img/hero-image.jpg" thumbnailTitle="overview & design themes" url="www.google.com.au"/>
             </div>
-            <div className="col-lg-3 two-shape-container">
-                <GeometryShape
-                    img="assets/img/hero-image.jpg"
-                    thumbnailTitle="Overview" />
-
-                <div className="shape-container">
-                    <span className="shape-before" />
-                    img2
-                    <span className="shape-after" />
-                </div>
+            <div className="col-lg-auto">
+                <GeometryShape img="assets/img/hero-image.jpg" thumbnailTitle="design & technology conference" />
+                <GeometryShape img="assets/img/hero-image.jpg" thumbnailTitle="destination - geelong" />
             </div>
-            <div className="col-lg-6 newsletter-shape">
+            <div className="col-lg-auto">
                 <GeometryShape
                     title="Enter your email to subscribe to our Newsletter *"
-                    fullWidth={true} />
+                    fullWidth={true}
+                    input={true} />
             </div>
         </div>
     )
