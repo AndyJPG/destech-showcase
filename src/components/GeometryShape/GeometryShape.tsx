@@ -5,7 +5,8 @@ type Props = {
     title?: string,
     thumbnailTitle?: string,
     img?: string,
-    fullWidth?: boolean
+    fullWidth?: boolean,
+    input?: boolean
 }
 
 type ShapeContainerStyle = {
@@ -34,7 +35,6 @@ function GeometryShape(props: Props) {
                                      backgroundSize: "auto 100%",
                                      backgroundRepeat: "no-repeat",
                                      backgroundPosition: "center"}}>
-
                     </div> : null
             }
 
@@ -50,12 +50,17 @@ function GeometryShape(props: Props) {
                     <h4 className="shape-title">{props.title}</h4> : null
             }
 
-            <div className="shape-container-input">
-                <input />
-            </div>
-            <div className="shape-container-button">
-                <button className="btn btn-lg">submit</button>
-            </div>
+            {
+                props.input ?
+                    <div className="shape-container-form">
+                        <div className="shape-container-input">
+                            <input />
+                        </div>
+                        <div className="shape-container-button">
+                            <button className="btn btn-lg">submit</button>
+                        </div>
+                    </div> : null
+            }
 
             { props.img ? null : <span className="shape-after" /> }
         </div>

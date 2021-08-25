@@ -64,82 +64,85 @@
     padding: 2rem 1rem 0 1rem;
   }
 
-  // Styling for input area
-  $shape-form-padding-lr: 0.8rem;
-  $shape-form-font-size: 1.5rem;
-  $shape-form-shape-one-half: calc(38px / 2);
+  // Shape container form style
+  .shape-container-form {
+    // Styling for input area
+    $shape-form-padding-lr: 0.8rem;
+    $shape-form-font-size: 1.5rem;
+    $shape-form-shape-one-half: calc(38px / 2);
 
-  .shape-container-input {
-    $padding-top: 1rem;
+    .shape-container-input {
+      $padding-top: 1rem;
 
-    padding: $padding-top $shape-form-padding-lr 0 $shape-form-padding-lr;
-    position: relative;
+      padding: $padding-top $shape-form-padding-lr 0 $shape-form-padding-lr;
+      position: relative;
 
-    input {
-      width: 100%;
-      border: none;
-      font-size: $shape-form-font-size;
+      input {
+        width: 100%;
+        border: none;
+        font-size: $shape-form-font-size;
 
-      &:focus {
-        outline: none;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: $padding-top;
+        left: 0;
+        z-index: 9999;
+        border-top: $shape-form-shape-one-half solid transparent;
+        border-bottom: $shape-form-shape-one-half solid transparent;
+        border-right: $shape-form-padding-lr solid white;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: $padding-top;
+        right: 0;
+        border-top: $shape-form-shape-one-half solid transparent;
+        border-bottom: $shape-form-shape-one-half solid transparent;
+        border-left: $shape-form-padding-lr solid white;
       }
     }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: $padding-top;
-      left: 0;
-      z-index: 9999;
-      border-top: $shape-form-shape-one-half solid transparent;
-      border-bottom: $shape-form-shape-one-half solid transparent;
-      border-right: $shape-form-padding-lr solid white;
-    }
+    // Styling for submit button
+    .shape-container-button {
+      padding: 1rem $shape-form-padding-lr 0 $shape-form-padding-lr;
+      display: inline-block;
+      position: relative;
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: $padding-top;
-      right: 0;
-      border-top: $shape-form-shape-one-half solid transparent;
-      border-bottom: $shape-form-shape-one-half solid transparent;
-      border-left: $shape-form-padding-lr solid white;
-    }
-  }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        border-top: calc(50px / 2) solid transparent;
+        border-bottom: calc(50px / 2) solid transparent;
+        border-right: $shape-form-padding-lr solid white;
+      }
 
-  // Styling for submit button
-  .shape-container-button {
-    padding: 1rem $shape-form-padding-lr 0 $shape-form-padding-lr;
-    display: inline-block;
-    position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        border-top: calc(50px / 2) solid transparent;
+        border-bottom: calc(50px / 2) solid transparent;
+        border-left: $shape-form-padding-lr solid white;
+      }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      left: 0;
-      border-top: calc(50px / 2) solid transparent;
-      border-bottom: calc(50px / 2) solid transparent;
-      border-right: $shape-form-padding-lr solid white;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      right: 0;
-      border-top: calc(50px / 2) solid transparent;
-      border-bottom: calc(50px / 2) solid transparent;
-      border-left: $shape-form-padding-lr solid white;
-    }
-
-    button {
-      height: 50px;
-      font-weight: 600;
-      background: white;
-      color: $primary;
-      border-radius: 0;
-      text-transform: uppercase;
+      button {
+        height: 50px;
+        font-weight: 600;
+        background: white;
+        color: $primary;
+        border-radius: 0;
+        text-transform: uppercase;
+      }
     }
   }
 }
