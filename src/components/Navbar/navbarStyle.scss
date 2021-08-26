@@ -1,28 +1,28 @@
 @import 'src/assets/sass/variables';
 
 .nav-container {
-  border: 1px solid blue;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  transition: background-color 0.5s;
+  transition-timing-function: ease-out;
 
   .navbar {
-    width: 100%;
-    border: 1px solid blue;
     padding: 1rem 0;
 
+    // Collapse menu
     .navbar-collapse {
       padding-top: 1rem;
 
       @media (min-width: 992px) {
-        padding-top: 0rem;
+        padding-top: 0;
       }
     }
 
-    // Logo
-    .navbar-brand {
-      //border: 1px solid red;
-    }
-
+    // Brand logo
     .destech-logo {
-      width: 50px;
+      width: 3rem;
     }
 
     // Menu Items
@@ -31,22 +31,40 @@
       color: $secondary;
       font-weight: 500;
 
+      @media (min-width: 992px) {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
       &:hover {
         color: $primary;
       }
     }
-  }
 
-  .navbar-expand-lg {
+    // Toggler style
+    .navbar-toggler {
 
-    .navbar-nav {
-
-      .nav-link {
-        @media (min-width: 992px) {
-          padding-right: 1rem;
-          padding-left: 1rem;
-        }
+      &:focus, &:active {
+        outline: none;
+        box-shadow: none;
       }
     }
+  }
+}
+
+.fixed-navbar {
+  background: $secondary;
+  transition: background-color 0.5s;
+  transition-timing-function: ease-in;
+
+  .navbar {
+    .nav-link {
+      color: white;
+    }
+  }
+
+  .fa-bars {
+    color: white;
+    transition: color 0.5s;
   }
 }
