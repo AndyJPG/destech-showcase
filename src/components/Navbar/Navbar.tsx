@@ -18,8 +18,8 @@ function Navbar() {
     ];
 
     return (
-        <div className="container-lg nav-container">
-            <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid nav-container">
+            <nav className="navbar navbar-expand-lg container-lg">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">
                         <img className="destech-logo" src="/assets/img/logo/destech-logo-black.svg" alt="Destech logo"/>

@@ -8,6 +8,14 @@
     border: 1px solid blue;
     padding: 1rem 0;
 
+    .navbar-collapse {
+      padding-top: 1rem;
+
+      @media (min-width: 992px) {
+        padding-top: 0rem;
+      }
+    }
+
     // Logo
     .navbar-brand {
       //border: 1px solid red;
