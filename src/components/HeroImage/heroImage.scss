@@ -1,17 +1,18 @@
 @import "src/assets/sass/variables";
 
-.hero-container {
-  border: 1px solid red;
-  position: static;
-  padding: 3rem 1.5rem;
+$hero-background-color: #f2f3f5;
 
-  .row {
-    border: 1px solid red;
+.hero-container {
+  background: $hero-background-color;
+  padding-top: 6rem;
+
+  @media (min-width: 992px) {
+    padding-top: 1rem;
   }
 
   .hero-header-container {
-    border: 1px solid red;
-    margin-top: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 
     @media (min-width: 992px) {
       padding-right: 2rem;
@@ -20,32 +21,43 @@
     .style-border {
       position: relative;
       border: 4px solid $secondary;
-      padding: 1rem 2rem 0.7rem 2rem;
+      padding: 1rem 1rem 0.7rem 1rem;
+
+      // TODO: Implement animation for border
 
       .hero-header {
-        border: 1px solid red;
         text-transform: uppercase;
         line-height: 4rem;
         font-weight: 400;
         letter-spacing: 0.2rem;
+        padding-left: 0.5rem;
       }
 
       .hero-subtitle {
         position: absolute;
-        border: 1px solid red;
         margin: 0;
+        width: 90%;
+        background: $hero-background-color;
+        padding-left: 0.5rem;
+
+        @media (min-width: 576px) {
+          width: auto;
+          padding-right: 0.5rem;
+        }
       }
     }
 
   }
 
   .hero-image-container {
-    border: 1px solid red;
-    padding: 0 2rem;
-    margin-top: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @media (min-width: 992px) {
+      padding-left: 0;
+    }
 
     .hero-image {
-      border: 1px solid red;
       width: 100%;
     }
   }

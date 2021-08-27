@@ -24,7 +24,7 @@ function ChairManSection() {
                     <div className="col-12 col-lg-4">
                         <div className="row">
                             <div className="col-6 col-sm-4 col-lg-12">
-                                <img className="img-fluid" src="/assets/img/hero-image.jpg" alt="Chair man picture" />
+                                <img className="img-fluid" src="/assets/img/hero-image.jpg" alt="Chair man" />
                             </div>
                             <div id="chairman-info" className="col-6 col-sm-4 col-lg-12">
                                 <p id="chairman-name">{sectionInfo.chairManName}</p>

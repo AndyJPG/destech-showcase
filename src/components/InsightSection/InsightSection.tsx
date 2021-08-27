@@ -19,8 +19,8 @@ function InsightSection() {
             {
                 insights.map((insight) => {
                     return (
-                        <div className="card col-sm-6 col-lg-4">
-                            <img className="card-img-top" src={insight.img} alt="card image"/>
+                        <div className="card col-sm-6 col-lg-4" key={insight.title}>
+                            <img className="card-img-top" src={insight.img} alt="insight"/>
                             <div className="card-body">
                                 <h5 className="card-title">{insight.title}</h5>
                             </div>
