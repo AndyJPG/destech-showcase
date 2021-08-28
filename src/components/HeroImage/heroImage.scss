@@ -5,11 +5,11 @@ $hero-background-color: white;
 .hero-container {
   background: $hero-background-color;
   padding-top: 6rem;
-  //border: 1px solid crimson;
-  //
-  //div, p, h1 {
-  //  border: 1px solid crimson;
-  //}
+  border: 1px solid crimson;
+
+  div, p, h1 {
+    border: 1px solid crimson;
+  }
 
   // Responsive size needed
 
@@ -22,8 +22,8 @@ $hero-background-color: white;
 
     // Hero title and subtitle container
     .hero-header-container {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
 
       @media (min-width: 992px) {
         padding-top: 10rem;
@@ -78,18 +78,33 @@ $hero-background-color: white;
     // Hero image carousel
     .hero-carousel {
       //TODO: Implement responsive size
-      position: absolute;
-      width: 50%;
-      top: calc(50% - 19rem);
-      right: 0;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
 
+      @media (min-width: 992px) {
+        position: absolute;
+        width: 50%;
+        top: calc(50% - 19rem);
+        right: 0;
+      }
+
+      // Carusel indicators style
       .carousel-indicators {
-        transform: rotate(90deg);
-        top: 50%;
-        right: -2rem;
-        margin: 0;
-        bottom: auto;
-        left: auto;
+        bottom: 0.5rem;
+
+        @media (min-width: 992px) {
+          transform: rotate(90deg);
+          top: 50%;
+          right: -2rem;
+          margin: 0;
+          bottom: auto;
+          left: auto;
+        }
+      }
+
+      // Carousel control style
+      .carousel-control-prev, .carousel-control-next {
+        width: auto;
       }
 
       // Get next image

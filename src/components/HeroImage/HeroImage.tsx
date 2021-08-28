@@ -1,6 +1,7 @@
 import './heroImage.scss';
 import * as React from 'react';
 import { Carousel } from "react-bootstrap";
+import {cleanup} from "@testing-library/react";
 
 type Image = {
     src: string,
@@ -17,6 +18,22 @@ const images: Array<Image> = [
 
 function HeroImage() {
 
+    // Variable to monitor screen width
+    const [scrennWidth, setScreenWidth] = React.useState(window.innerWidth);
+
+    // Tracking screen size
+    React.useEffect(() => {
+        function screenWidthMonitor(width: number) {
+            setScreenWidth(width);
+        }
+
+        window.addEventListener("resize",() => {screenWidthMonitor(window.innerWidth);});
+
+        return function cleanup() {
+            window.removeEventListener("resize", () => {screenWidthMonitor(window.innerWidth);});
+        };
+    });
+
     return (
         <div className="hero-container container-fluid">
             <div className="hero-content-container container-lg">
@@ -26,7 +43,7 @@ function HeroImage() {
                         <p className="hero-subtitle">Inclusion, Innovation & Interdisciplinary Design</p>
                     </div>
                 </div>
-                <Carousel fade className="hero-carousel" controls={false} variant="dark">
+                <Carousel fade className="hero-carousel" controls={scrennWidth < 992} indicators={scrennWidth > 992} variant="dark">
                     { images.map((image) =>
                         <Carousel.Item key={image.alt}>
                             <img className="d-block w-100" src={image.src} alt={image.alt} />
