@@ -5,17 +5,17 @@ $hero-background-color: white;
 .hero-container {
   background: $hero-background-color;
   padding-top: 6rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
+
   //border: 1px solid crimson;
   //
   //div, p, h1 {
   //  border: 1px solid crimson;
   //}
 
-  // Responsive size needed
-
   @media (min-width: 992px) {
-    padding-top: 6rem;
+    padding-top: 8rem;
+    padding-bottom: 6rem;
   }
 
   .hero-content-container {
@@ -38,8 +38,13 @@ $hero-background-color: white;
         border: 4px solid $secondary;
         padding: 1rem;
 
+        @media (min-width: 768px) {
+          height: 40rem;
+        }
+
         @media (min-width: 992px) {
-          padding-bottom: 5rem;
+          height: auto;
+          min-height: 240px;
         }
 
         // TODO: Implement animation for border
@@ -83,20 +88,40 @@ $hero-background-color: white;
       //TODO: Implement responsive size
       padding: 0 1rem 4.2rem 1rem;
       position: absolute;
+      width: 100%;
       bottom: 0;
       left: 0;
 
+      @media (min-width: 576px) {
+        padding-bottom: 3rem;
+      }
+
       @media (min-width: 992px) {
-        width: 50%;
-        top: calc(50% - 19rem);
+        left: auto;
+        bottom: auto;
+        padding-bottom: 0;
         right: 0;
+        width: auto;
+        top: calc(50% - 17.5rem);
       }
 
       .carousel-inner {
+        max-width: 410px;
+        margin-left: auto;
+        margin-right: auto;
+        
         @media (min-width: 576px) {
           width: 80%;
-          margin-left: auto;
-          margin-right: auto;
+        }
+        
+        @media (min-width: 768px) {
+          max-width: 490px;
+          width: 70%;
+        }
+
+        @media (min-width: 992px) {
+          width: 34rem;
+          max-width: 34rem;
         }
       }
 
@@ -117,10 +142,18 @@ $hero-background-color: white;
       // Carousel control style
       .carousel-control-prev {
         left: 0.5rem;
+
+        @media (min-width: 576px) {
+          left: 0;
+        }
       }
 
       .carousel-control-next {
         right: 0.5rem;
+
+        @media (min-width: 576px) {
+          right: 0;
+        }
       }
 
       // Get next image
