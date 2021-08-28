@@ -1,6 +1,6 @@
 @import "src/assets/sass/variables";
 
-$hero-background-color: #f2f3f5;
+$hero-background-color: white;
 
 .hero-container {
   background: $hero-background-color;
@@ -83,13 +83,34 @@ $hero-background-color: #f2f3f5;
       top: calc(50% - 19rem);
       right: 0;
 
+      .carousel-indicators {
+        transform: rotate(90deg);
+        top: 50%;
+        right: -2rem;
+        margin: 0;
+        bottom: auto;
+        left: auto;
+      }
+
+      // Get next image
       // Next image in carousel
       .carousel-item-next{
         transition: opacity 2.5s ease-in-out;
       }
 
-      // Previous image in carousel
+      // Next image's previous image in carousel
       .carousel-item-start{
+        transition: opacity 2.5s ease-in-out;
+      }
+
+      // Get previous image
+      // Previous image in carousel
+      .carousel-item-prev {
+        transition: opacity 2.5s ease-in-out;
+      }
+
+      // Previous image's next image
+      .carousel-item-end {
         transition: opacity 2.5s ease-in-out;
       }
     }
