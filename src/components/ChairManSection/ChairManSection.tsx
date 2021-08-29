@@ -18,15 +18,15 @@ function ChairManSection() {
     };
 
     return (
-        <div className="background-container container-fluid">
+        <div className="chairman-container container-fluid">
             <div className="content-container container-lg">
                 <div className="row">
                     <div className="col-12 col-lg-4">
                         <div className="row">
-                            <div className="col-6 col-sm-4 col-lg-12">
-                                <img className="img-fluid" src="/assets/img/hero-image.jpg" alt="Chair man" />
+                            <div className="col-12 col-sm-4 col-lg-12">
+                                <img className="img-fluid" src="/assets/img/chairman.jpg" alt="Chairman" />
                             </div>
-                            <div id="chairman-info" className="col-6 col-sm-4 col-lg-12">
+                            <div id="chairman-info" className="col-12 col-sm-4 col-lg-12">
                                 <p id="chairman-name">{sectionInfo.chairManName}</p>
                                 <hr id="info-separator" />
                                 <p id="chairman-title">{sectionInfo.chairManTitle}</p>

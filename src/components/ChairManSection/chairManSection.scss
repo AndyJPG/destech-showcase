@@ -1,29 +1,29 @@
 @import "src/assets/sass/variables";
 
-.background-container {
+.chairman-container {
   background: $secondary;
   color: white;
-  padding-top: 5.5rem;
+  padding-top: 4rem;
   padding-bottom: 4rem;
 
-  div {
+  div, h2, p {
     border: 1px solid white;
   }
 
   .content-container {
     position: relative;
-    border: 1px solid white;
 
     @media (min-width: 992px) {
       padding: 0 5rem;
     }
 
     .float-element {
-      border: 1px solid white;
+      display: none;
       width: 15%;
       height: 150px;
 
       @media (min-width: 576px) {
+        display: block;
         position: absolute;
         right: 0;
         top: -2rem;
@@ -51,27 +51,28 @@
       }
     }
 
+    // Information
     .section-info {
       padding-top: 2rem;
 
        @media (min-width: 992px) {
          padding: 0 3rem;
-
-         .section-title {
-           width: 80%;
-         }
        }
 
+      // Information title
       .section-title {
         text-transform: uppercase;
-        border: 1px solid white;
         letter-spacing: 0.2rem;
         line-height: 2.5rem;
+
+        @media (min-width: 992px) {
+          width: 80%;
+        }
       }
 
+      // Information content
       .section-content {
-        border: 1px solid white;
-        padding: 2.5rem 0;
+        padding: 1rem 0 2.5rem 0;
         letter-spacing: 0.1rem;
       }
 
