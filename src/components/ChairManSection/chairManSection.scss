@@ -10,6 +10,11 @@
     padding-top: 7rem;
   }
 
+  @media (min-width: 768px) {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+  }
+
   div, h2, p {
     border: 1px solid white;
   }
@@ -95,8 +100,6 @@
       }
 
       .animate-btn {
-        border: 1px solid white;
-        float: right;
 
         #animate-element {
           display: none;
