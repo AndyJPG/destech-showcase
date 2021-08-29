@@ -6,6 +6,10 @@
   padding-top: 4rem;
   padding-bottom: 4rem;
 
+  @media (min-width: 576px) {
+    padding-top: 7rem;
+  }
+
   div, h2, p {
     border: 1px solid white;
   }
@@ -17,43 +21,57 @@
       padding: 0 5rem;
     }
 
-    .float-element {
-      display: none;
-      width: 15%;
-      height: 150px;
+    // Chairman information section
+    .chairman-section {
+      position: relative;
 
-      @media (min-width: 576px) {
-        display: block;
+      // Floating element
+      // TODO: Can apply animation to it
+      .float-element {
         position: absolute;
-        right: 0;
-        top: -2rem;
-      }
-    }
+        display: none;
 
-    #chairman-info {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-
-      #info-separator {
-        border-top: 2px solid white;
-        opacity: 1;
-        width: 20%;
+        @media (min-width: 576px) {
+          display: block;
+          top: -25%;
+          right: 2rem;
+          width: 15%;
+        }
       }
 
-      #chairman-name {
-        font-size: 1.2rem;
-      }
+      #chairman-info {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        
+        @media (min-width: 576px) {
+          padding-top: 0;
+        }
 
-      #chairman-title {
-        text-transform: capitalize;
-        letter-spacing: 0.1rem;
-        font-size: 0.9rem;
+        #info-separator {
+          border-top: 2px solid white;
+          opacity: 1;
+          width: 20%;
+        }
+
+        #chairman-name {
+          font-size: 1.2rem;
+        }
+
+        #chairman-title {
+          text-transform: capitalize;
+          letter-spacing: 0.1rem;
+          font-size: 0.9rem;
+        }
       }
     }
 
     // Information
     .section-info {
       padding-top: 2rem;
+
+      @media (min-width: 576px) {
+        padding-top: 3rem;
+      }
 
        @media (min-width: 992px) {
          padding: 0 3rem;
