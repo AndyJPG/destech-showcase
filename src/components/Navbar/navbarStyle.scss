@@ -1,12 +1,17 @@
 @import 'src/assets/sass/variables';
 
 .nav-container {
-  background: transparent;
+  background: white;
   position: fixed;
   top: 0;
   z-index: 2;
+
   transition: background-color 0.5s;
   transition-timing-function: ease-out;
+
+  @media (min-width: 992px) {
+    background: transparent;
+  }
 
   .navbar {
     padding: 1rem 0;

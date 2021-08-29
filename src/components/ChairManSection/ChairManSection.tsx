@@ -1,5 +1,6 @@
 import './chairManSection.scss';
 import * as React from 'react';
+import { Link } from "react-router-dom";
 
 type Info = {
     chairManName: string,
@@ -32,20 +33,21 @@ function ChairManSection() {
                                 <p id="chairman-title">{sectionInfo.chairManTitle}</p>
                             </div>
                         </div>
-                        <div className="float-element">
-                            <img src="assets/img/floatElements/float-element-1.svg" alt="float cube" />
-                        </div>
                     </div>
                     <div className="col-12 col-lg-8 section-info">
                         <h2 className="section-title">{sectionInfo.sectionTitle}</h2>
                         <p className="section-content">{sectionInfo.sectionContent}</p>
                         <div className="animate-btn">
-                            <div id="animate-element" className="align-middle">
-                                <img src="" alt="animate element" />
+                            <div className="animate-btn-container">
+                                <div id="animate-element" />
+                                {/*<div className="hexagon" />*/}
+                                <Link id="read-message-btn" className="align-middle" to="/">read message</Link>
                             </div>
-                            <a id="read-message-btn" className="align-middle" href="#">read message</a>
                         </div>
                     </div>
+                </div>
+                <div className="float-element">
+                    <img src="assets/img/floatElements/float-element-1.svg" alt="float cube" />
                 </div>
             </div>
         </div>

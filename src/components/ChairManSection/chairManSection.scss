@@ -6,12 +6,12 @@
   padding-top: 4rem;
   padding-bottom: 4rem;
 
-  @media (min-width: 576px) {
-    padding-top: 7rem;
+  @media (min-width: 768px) {
+    padding-top: 4.5rem;
   }
 
-  @media (min-width: 768px) {
-    padding-top: 8rem;
+  @media (min-width: 992px) {
+    padding-top: 6rem;
     padding-bottom: 6rem;
   }
 
@@ -26,28 +26,37 @@
       padding: 0 5rem;
     }
 
+    // Floating element
+    // TODO: Can apply animation to it
+    .float-element {
+      position: absolute;
+      display: none;
+      max-width: 10rem;
+
+      @media (min-width: 576px) {
+        display: block;
+        top: -6%;
+        right: 2rem;
+        width: 15%;
+      }
+
+      @media (min-width: 768px) {
+        top: -6%;
+      }
+
+      @media (min-width: 992px) {
+        right: 0;
+        width: 15%;
+      }
+    }
+
     // Chairman information section
     .chairman-section {
-      position: relative;
-
-      // Floating element
-      // TODO: Can apply animation to it
-      .float-element {
-        position: absolute;
-        display: none;
-
-        @media (min-width: 576px) {
-          display: block;
-          top: -25%;
-          right: 2rem;
-          width: 15%;
-        }
-      }
 
       #chairman-info {
         padding-top: 1rem;
         padding-bottom: 1rem;
-        
+
         @media (min-width: 576px) {
           padding-top: 0;
         }
@@ -66,6 +75,7 @@
           text-transform: capitalize;
           letter-spacing: 0.1rem;
           font-size: 0.9rem;
+          max-width: 18rem;
         }
       }
     }
@@ -73,20 +83,22 @@
     // Information
     .section-info {
       padding-top: 2rem;
+      position: relative;
 
       @media (min-width: 576px) {
         padding-top: 3rem;
       }
 
-       @media (min-width: 992px) {
-         padding: 0 3rem;
-       }
+      @media (min-width: 992px) {
+        padding: 0 3rem;
+      }
 
       // Information title
       .section-title {
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         line-height: 2.5rem;
+        max-width: 28rem;
 
         @media (min-width: 992px) {
           width: 80%;
@@ -97,37 +109,101 @@
       .section-content {
         padding: 1rem 0 2.5rem 0;
         letter-spacing: 0.1rem;
+        max-width: 34rem;
+
+        @media (min-width: 992px) {
+          width: 85%;
+          margin-top: 2rem;
+        }
       }
 
       .animate-btn {
 
-        #animate-element {
-          display: none;
-
-          @media (min-width: 992px) {
-            display: inline-block;
-            height: 4rem;
-          }
-          border: 1px solid white;
+        @media (min-width: 992px) {
+          position: absolute;
+          right: 0;
+          bottom: 2rem;
         }
 
-        #read-message-btn {
-          border: 1px solid white;
-          text-transform: uppercase;
-          text-decoration: none;
-          font-size: 1.2rem;
-          letter-spacing: 0.2rem;
-          background: white;
-          color: $secondary;
-          padding: 0.5rem 0.5rem;
-          border-radius: 0.5rem;
-          font-weight: 600;
+        .animate-btn-container {
 
           @media (min-width: 992px) {
-            color: white;
-            background: transparent;
-            padding: 0;
-            font-size: 1.5rem;
+            position: relative;
+            display: flex;
+            height: 8rem;
+            width: 20rem;
+            justify-content: center;
+            align-items: center;
+          }
+
+          #animate-element {
+            display: none;
+            border-right: none;
+            border-left: none;
+
+            $gap: calc(-6rem / 2.83);
+            $side-shape-size: calc(6rem / 1.41422712488);
+            $shape-border-color: white;
+            $shape-border-width: 3px;
+
+            @media (min-width: 992px) {
+              display: block;
+              position: absolute;
+              height: 6rem;
+              width: calc(6rem / 1.73200161653);
+              border-top: $shape-border-width solid $shape-border-color;
+              border-bottom: $shape-border-width solid $shape-border-color;
+              margin: 0 2.6rem;
+              bottom: 0;
+              left: -8rem;
+
+              &:before, &:after {
+                //border: 1px solid #ffffff;
+                content: "";
+                position: absolute;
+                z-index: 1;
+                width: $side-shape-size;
+                height: $side-shape-size;
+                -webkit-transform: scaleX(0.5774) rotate(-45deg);
+                -ms-transform: scaleX(0.5774) rotate(-45deg);
+                transform: scaleX(0.5774) rotate(45deg);
+                background-color: inherit;
+                top: 11.3px;
+              }
+
+              &:before {
+                right: $gap;
+                border-top: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
+                border-right: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
+              }
+
+              &:after {
+                left: $gap;
+                border-bottom: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
+                border-left: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
+              }
+            }
+          }
+
+          #read-message-btn {
+            border: 1px solid white;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
+            background: white;
+            color: $secondary;
+            padding: 0.5rem 0.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+
+            @media (min-width: 992px) {
+              color: white;
+              background: transparent;
+              padding: 0;
+              font-size: 1.5rem;
+              border: none;
+            }
           }
         }
       }
