@@ -1,5 +1,6 @@
 import './chairManSection.scss';
 import * as React from 'react';
+import { Link } from "react-router-dom";
 
 type Info = {
     chairManName: string,
@@ -18,15 +19,15 @@ function ChairManSection() {
     };
 
     return (
-        <div className="background-container container-fluid">
+        <div className="chairman-container container-fluid">
             <div className="content-container container-lg">
                 <div className="row">
-                    <div className="col-12 col-lg-4">
+                    <div className="chairman-section col-12 col-lg-4">
                         <div className="row">
-                            <div className="col-6 col-sm-4 col-lg-12">
-                                <img className="img-fluid" src="/assets/img/hero-image.jpg" alt="Chair man picture" />
+                            <div className="col-12 col-sm-4 col-lg-12">
+                                <img className="img-fluid" src="/assets/img/chairman.jpg" alt="Chairman" />
                             </div>
-                            <div id="chairman-info" className="col-6 col-sm-4 col-lg-12">
+                            <div id="chairman-info" className="col-12 col-sm-5 col-lg-12">
                                 <p id="chairman-name">{sectionInfo.chairManName}</p>
                                 <hr id="info-separator" />
                                 <p id="chairman-title">{sectionInfo.chairManTitle}</p>
@@ -37,15 +38,15 @@ function ChairManSection() {
                         <h2 className="section-title">{sectionInfo.sectionTitle}</h2>
                         <p className="section-content">{sectionInfo.sectionContent}</p>
                         <div className="animate-btn">
-                            <div id="animate-element" className="align-middle">
-                                <img src="" alt="animate element" />
+                            <div className="animate-btn-container">
+                                <Link id="read-message-btn" className="align-middle" to="/">read message</Link>
+                                <img id="animate-element" src="assets/img/floatElements/button-element.svg" alt="button element"/>
                             </div>
-                            <a id="read-message-btn" className="align-middle" href="#">read message</a>
                         </div>
                     </div>
-                    <div className="float-element">
-                        <img src="" alt="float cube" />
-                    </div>
+                </div>
+                <div className="float-element">
+                    <img src="assets/img/floatElements/float-element-1.svg" alt="float cube" />
                 </div>
             </div>
         </div>

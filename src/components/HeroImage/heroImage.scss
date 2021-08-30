@@ -1,52 +1,182 @@
 @import "src/assets/sass/variables";
 
+$hero-background-color: white;
+
 .hero-container {
-  border: 1px solid red;
-  position: static;
-  padding: 3rem 1.5rem;
+  background: $hero-background-color;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
 
-  .row {
-    border: 1px solid red;
+  //border: 1px solid crimson;
+  //
+  //div, p, h1 {
+  //  border: 1px solid crimson;
+  //}
+
+  @media (min-width: 992px) {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
   }
 
-  .hero-header-container {
-    border: 1px solid red;
-    margin-top: 4rem;
+  .hero-content-container {
+    position: relative;
 
-    @media (min-width: 992px) {
-      padding-right: 2rem;
-    }
+    // Hero title and subtitle container
+    .hero-header-container {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
 
-    .style-border {
-      position: relative;
-      border: 4px solid $secondary;
-      padding: 1rem 2rem 0.7rem 2rem;
-
-      .hero-header {
-        border: 1px solid red;
-        text-transform: uppercase;
-        line-height: 4rem;
-        font-weight: 400;
-        letter-spacing: 0.2rem;
+      @media (min-width: 992px) {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
       }
 
-      .hero-subtitle {
-        position: absolute;
-        border: 1px solid red;
-        margin: 0;
+      // Hero styled border
+      .style-border {
+        position: relative;
+        height: 38rem;
+        border: 4px solid $secondary;
+        padding: 1rem;
+
+        @media (min-width: 768px) {
+          height: 40rem;
+        }
+
+        @media (min-width: 992px) {
+          height: auto;
+          min-height: 240px;
+        }
+
+        // TODO: Implement animation for border
+
+        .hero-header {
+          text-transform: uppercase;
+          line-height: 2.5rem;
+          font-weight: 400;
+          letter-spacing: 0.2rem;
+          padding-left: 0.5rem;
+
+          @media (min-width: 992px) {
+            width: 60%;
+            line-height: 4rem;
+          }
+        }
+
+        .hero-subtitle {
+          position: absolute;
+          margin: 0;
+          bottom: -1.5rem;
+          width: 90%;
+          background: $hero-background-color;
+          padding-left: 0.5rem;
+
+          @media (min-width: 576px) {
+            width: auto;
+            padding-right: 0.5rem;
+            bottom: -1rem;
+          }
+
+          @media (min-width: 992px) {
+            bottom: -1rem;
+          }
+        }
       }
     }
 
-  }
-
-  .hero-image-container {
-    border: 1px solid red;
-    padding: 0 2rem;
-    margin-top: 4rem;
-
-    .hero-image {
-      border: 1px solid red;
+    // Hero image carousel
+    .hero-carousel {
+      //TODO: Implement responsive size
+      padding: 0 1rem 4.2rem 1rem;
+      position: absolute;
       width: 100%;
+      bottom: 0;
+      left: 0;
+
+      @media (min-width: 576px) {
+        padding-bottom: 3rem;
+      }
+
+      @media (min-width: 992px) {
+        left: auto;
+        bottom: auto;
+        padding-bottom: 0;
+        right: 0;
+        width: auto;
+        top: calc(50% - 17.5rem);
+      }
+
+      .carousel-inner {
+        max-width: 410px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        @media (min-width: 576px) {
+          width: 80%;
+        }
+        
+        @media (min-width: 768px) {
+          max-width: 490px;
+          width: 70%;
+        }
+
+        @media (min-width: 992px) {
+          width: 34rem;
+          max-width: 34rem;
+        }
+      }
+
+      // Carusel indicators style
+      .carousel-indicators {
+        bottom: 0.5rem;
+
+        @media (min-width: 992px) {
+          transform: rotate(90deg);
+          top: 50%;
+          right: -2rem;
+          margin: 0;
+          bottom: auto;
+          left: auto;
+        }
+      }
+
+      // Carousel control style
+      .carousel-control-prev {
+        left: 0.5rem;
+
+        @media (min-width: 576px) {
+          left: 0;
+        }
+      }
+
+      .carousel-control-next {
+        right: 0.5rem;
+
+        @media (min-width: 576px) {
+          right: 0;
+        }
+      }
+
+      // Get next image
+      // Next image in carousel
+      .carousel-item-next{
+        transition: opacity 2.5s ease-in-out;
+      }
+
+      // Next image's previous image in carousel
+      .carousel-item-start{
+        transition: opacity 2.5s ease-in-out;
+      }
+
+      // Get previous image
+      // Previous image in carousel
+      .carousel-item-prev {
+        transition: opacity 2.5s ease-in-out;
+      }
+
+      // Previous image's next image
+      .carousel-item-end {
+        transition: opacity 2.5s ease-in-out;
+      }
     }
   }
 }
