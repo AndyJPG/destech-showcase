@@ -11,7 +11,7 @@
   }
 
   @media (min-width: 992px) {
-    padding-top: 6rem;
+    padding-top: 6.5rem;
     padding-bottom: 6rem;
   }
 
@@ -59,6 +59,10 @@
 
         @media (min-width: 576px) {
           padding-top: 0;
+        }
+
+        @media (min-width: 992px) {
+          padding-top: 1rem;
         }
 
         #info-separator {
@@ -121,7 +125,7 @@
 
         @media (min-width: 992px) {
           position: absolute;
-          right: 0;
+          right: 6rem;
           bottom: 2rem;
         }
 
@@ -130,58 +134,19 @@
           @media (min-width: 992px) {
             position: relative;
             display: flex;
-            height: 8rem;
-            width: 20rem;
+            height: 6rem;
             justify-content: center;
             align-items: center;
           }
 
           #animate-element {
             display: none;
-            border-right: none;
-            border-left: none;
-
-            $gap: calc(-6rem / 2.83);
-            $side-shape-size: calc(6rem / 1.41422712488);
-            $shape-border-color: white;
-            $shape-border-width: 3px;
+            position: absolute;
 
             @media (min-width: 992px) {
               display: block;
-              position: absolute;
-              height: 6rem;
-              width: calc(6rem / 1.73200161653);
-              border-top: $shape-border-width solid $shape-border-color;
-              border-bottom: $shape-border-width solid $shape-border-color;
-              margin: 0 2.6rem;
-              bottom: 0;
-              left: -8rem;
-
-              &:before, &:after {
-                //border: 1px solid #ffffff;
-                content: "";
-                position: absolute;
-                z-index: 1;
-                width: $side-shape-size;
-                height: $side-shape-size;
-                -webkit-transform: scaleX(0.5774) rotate(-45deg);
-                -ms-transform: scaleX(0.5774) rotate(-45deg);
-                transform: scaleX(0.5774) rotate(45deg);
-                background-color: inherit;
-                top: 11.3px;
-              }
-
-              &:before {
-                right: $gap;
-                border-top: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
-                border-right: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
-              }
-
-              &:after {
-                left: $gap;
-                border-bottom: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
-                border-left: solid calc(#{$shape-border-width} * 1.41422) $shape-border-color;
-              }
+              height: 100%;
+              left: -2.4rem;
             }
           }
 

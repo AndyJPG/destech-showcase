@@ -39,9 +39,8 @@ function ChairManSection() {
                         <p className="section-content">{sectionInfo.sectionContent}</p>
                         <div className="animate-btn">
                             <div className="animate-btn-container">
-                                <div id="animate-element" />
-                                {/*<div className="hexagon" />*/}
                                 <Link id="read-message-btn" className="align-middle" to="/">read message</Link>
+                                <img id="animate-element" src="assets/img/floatElements/button-element.svg" alt="button element"/>
                             </div>
                         </div>
                     </div>
