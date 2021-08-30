@@ -1,9 +1,8 @@
 @import 'src/assets/sass/variables';
 
 .section-container {
-  border: 1px solid cornflowerblue;
 
-  > div {
+  div, h3, img {
     border: 1px solid cornflowerblue;
   }
 
@@ -12,20 +11,20 @@
     margin-bottom: 4rem;
 
     .section-title-container {
-      border: 1px solid cornflowerblue;
       margin-bottom: 2rem;
 
       .section-title-element {
-        border: 1px solid cornflowerblue;
         display: inline-block;
+        width: 20%;
+        margin-right: 5%;
       }
 
       .section-title {
         margin: 0;
         display: inline-block;
-        border: 1px solid cornflowerblue;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
+        width: 75%;
       }
     }
   }

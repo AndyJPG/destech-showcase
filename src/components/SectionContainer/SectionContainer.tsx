@@ -13,7 +13,7 @@ function SectionContainer(props: Props) {
                 {
                     props.sectionTitle ?
                         <div className="section-title-container">
-                            <img className="section-title-element align-middle" src="" alt="title element"/>
+                            <img className="section-title-element align-middle" src="assets/img/floatElements/title-element.svg" alt="title element"/>
                             <h3 className="section-title align-middle">{props.sectionTitle}</h3>
                         </div> : null
                 }
