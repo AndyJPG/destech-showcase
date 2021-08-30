@@ -2,9 +2,9 @@
 
 .events-container {
 
-  //div, li, p, i {
-  //  border: 1px solid crimson;
-  //}
+  div, li, p, i {
+    border: 1px solid crimson;
+  }
 
   .event-item {
     padding: 0.5rem;
@@ -19,11 +19,11 @@
     }
 
     .event-content {
-      width: 90%;
+      width: 95%;
 
       .event-date {
         font-size: 1rem;
-        font-weight: 300;
+        font-weight: 500;
       }
 
       .event-name {
@@ -31,24 +31,46 @@
         font-size: 1.5rem;
         line-height: 2rem;
         margin: 0.5rem 0;
+
+        @media (min-width: 576px) {
+          font-size: 1.6rem;
+        }
       }
 
       .event-location {
         font-size: 0.8rem;
         font-weight: 300;
+
+        @media (min-width: 576px) {
+          font-size: 1rem;
+        }
       }
     }
 
     i {
-      width: 10%;
+      width: 5%;
       font-size: 1.5rem;
       text-align: right;
       color: $primary;
-      //opacity: 0.4;
     }
   }
 }
 
-.event-element {
-  display: none;
+.events-filter {
+
+  div, li, p, i {
+    border: 1px solid crimson;
+  }
+
+  i {
+    color: $primary;
+  }
+
+  ul {
+    width: 100%;
+  }
+
+  .filter-title {
+    display: flex;
+  }
 }
