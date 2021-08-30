@@ -17,6 +17,11 @@
         display: inline-block;
         width: 20%;
         margin-right: 5%;
+        max-width: 6.5rem;
+
+        @media (min-width: 576px) {
+          margin-right: 1.5rem;
+        }
       }
 
       .section-title {
@@ -25,6 +30,10 @@
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         width: 75%;
+
+        @media (min-width: 576px) {
+          width: calc(100% - 8rem);
+        }
       }
     }
   }
