@@ -1,25 +1,54 @@
-.events-container {
-  border: 1px solid crimson;
+@import "src/assets/sass/variables";
 
-  div {
-    border: 1px solid crimson;
-  }
+.events-container {
+
+  //div, li, p, i {
+  //  border: 1px solid crimson;
+  //}
 
   .event-item {
+    padding: 0.5rem;
     border: none;
-    margin-bottom: 1rem;
-    border: 1px solid crimson;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 
-    p:first-child {
-      margin-bottom: 0.2rem;
-      border: 1px solid crimson;
+    p {
+      margin: 0;
     }
 
-    p:last-child {
-      margin-bottom: 0;
-      text-transform: uppercase;
-      font-weight: 600;
-      border: 1px solid crimson;
+    .event-content {
+      width: 90%;
+
+      .event-date {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+
+      .event-name {
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin: 0.5rem 0;
+      }
+
+      .event-location {
+        font-size: 0.8rem;
+        font-weight: 300;
+      }
+    }
+
+    i {
+      width: 10%;
+      font-size: 1.5rem;
+      text-align: right;
+      color: $primary;
+      //opacity: 0.4;
     }
   }
+}
+
+.event-element {
+  display: none;
 }

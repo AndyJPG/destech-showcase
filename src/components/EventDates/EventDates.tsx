@@ -3,20 +3,24 @@ import * as React from 'react';
 
 type Event = {
     eventName: string,
-    eventDate: Date
+    eventDate: Date,
+    eventLocation: string
 }
 
 const events: Array<Event> = [
     {
         eventName: "full papers due",
-        eventDate: new Date("2016-09-09")
+        eventDate: new Date("2016-09-09"),
+        eventLocation: "Deakin University Geelong Waterfront Campus Building K1"
     },
     {
         eventName: "full paper notification",
-        eventDate: new Date("2016-09-30")
+        eventDate: new Date("2016-09-30"),
+        eventLocation: "Deakin University Melbourne Burwood Campus Building U6"
     },{
         eventName: "post-review full paper due",
-        eventDate: new Date("2016-10-28")
+        eventDate: new Date("2016-10-28"),
+        eventLocation: "Deakin University Geelong Waterfront Campus Building D23"
     }
 ];
 
@@ -24,13 +28,16 @@ function EventDates() {
     return (
         <div className="row">
             <div className="events-container col-lg-5">
-                EventDates
                 <ul className="list-group">
                     {
                         events.map((event) =>
                             <li className="event-item list-group-item" key={event.eventName}>
-                                <p>{event.eventDate.toDateString()}</p>
-                                <p>{event.eventName}</p>
+                                <div className="event-content">
+                                    <p className="event-date">{event.eventDate.toDateString()}</p>
+                                    <p className="event-name">{event.eventName}</p>
+                                    <p className="event-location">{event.eventLocation}</p>
+                                </div>
+                                <i className="fas fa-caret-right" />
                             </li>
                         )
                     }

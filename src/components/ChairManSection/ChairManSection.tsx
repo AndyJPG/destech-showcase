@@ -40,13 +40,13 @@ function ChairManSection() {
                         <div className="animate-btn">
                             <div className="animate-btn-container">
                                 <Link id="read-message-btn" className="align-middle" to="/">read message</Link>
-                                <img id="animate-element" src="assets/img/floatElements/button-element.svg" alt="button element"/>
+                                <img id="animate-element" src="assets/img/floatElements/button-element-orange.svg" alt="button element"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="float-element">
-                    <img src="assets/img/floatElements/float-element-1.svg" alt="float cube" />
+                    <img src="assets/img/floatElements/float-element-black.svg" alt="float cube" />
                 </div>
             </div>
         </div>

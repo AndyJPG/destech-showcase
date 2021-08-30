@@ -35,7 +35,7 @@ $hero-background-color: white;
       .style-border {
         position: relative;
         height: 38rem;
-        border: 4px solid $secondary;
+        border: 4px solid $primary;
         padding: 1rem;
 
         @media (min-width: 768px) {
@@ -64,6 +64,7 @@ $hero-background-color: white;
 
         .hero-subtitle {
           position: absolute;
+          color: $primary;
           margin: 0;
           bottom: -1.5rem;
           width: 90%;
@@ -128,6 +129,11 @@ $hero-background-color: white;
       // Carusel indicators style
       .carousel-indicators {
         bottom: 0.5rem;
+        z-index: 1;
+
+        [data-bs-target] {
+          background-color: $primary;
+        }
 
         @media (min-width: 992px) {
           transform: rotate(90deg);
