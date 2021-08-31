@@ -1,5 +1,6 @@
 import './eventDates.scss';
 import * as React from 'react';
+import { useState } from 'react';
 
 type Event = {
     eventName: string,
@@ -9,7 +10,8 @@ type Event = {
 
 type FilterOption = {
     name: string,
-    number: number
+    number: number,
+    checked: boolean
 }
 
 const events: Array<Event> = [
@@ -29,27 +31,57 @@ const events: Array<Event> = [
     }
 ];
 
-const filterOptions: Array<FilterOption> = [
-    {name: "Upcoming", number: 3},
-    {name: "Design", number: 10},
-    {name: "Technology", number: 7},
-    {name: "New innovations", number: 4}
-];
-
 function EventDates() {
+
+    const [filterOptions, setFilterOptions] = useState<Array<FilterOption>>(
+        [
+            {name: "Upcoming", number: 3, checked: true},
+            {name: "Design", number: 10, checked: false},
+            {name: "Technology", number: 7, checked: false},
+            {name: "New innovations", number: 4, checked: false}
+        ]
+    );
+
+    const [showFilter, setShowFilter] = useState(true);
+
+    function checkboxHandler(name: string) {
+        let newFilterOptions = [...filterOptions];
+        newFilterOptions.forEach((option) => {
+            if (option.name === name) {
+                option.checked = !option.checked;
+            }
+        });
+        setFilterOptions(newFilterOptions);
+    }
+
     return (
-        <div className="row">
-            <p>The DesTech 2016 schedule is currently under development. The agenda will be published for desktop and mobile using the sched.org conference app. Please keep an eye on this website for information about the
+        <div className="row important-events-container">
+            <p className="description">The DesTech 2016 schedule is currently under development. The agenda will be published for desktop and
+                mobile using the sched.org conference app. Please keep an eye on this website for information about the
                 DesTech 2016 program.</p>
             <div className="events-filter col-12 col-sm-3 col-lg-3">
-                <div className="filter-title">
-                    <p>Filter</p>
-                    <i className="fa fa-caret-down" />
-                </div>
-                <ul className="list-group">
-                    <li className="list-group-item"><input type="checkbox" /> Item one</li>
-                    <li className="list-group-item"><input type="checkbox" /> Item one</li>
-                    <li className="list-group-item"><input type="checkbox" /> Item one</li>
+                <label className="filter-title">
+                    <input type="checkbox" checked={showFilter} onChange={() => {setShowFilter(!showFilter)}} />
+                    <i className="fas fa-sliders-h mobile-filter-icon" />
+                    <span>Filters</span>
+                    <i className="fa fa-caret-down screen-filter-icon"/>
+                </label>
+                <ul className="list-group events-filter-list" style={{height: showFilter ? "168px" : "0", opacity: showFilter ? "1" : "0"}} >
+                    {
+                        filterOptions.map((option) =>
+                            <li className="list-group-item" key={option.name}>
+                                <label className="control control-checkbox">
+                                    { option.checked ? <i className="fa fa-check-square" /> : <i className="far fa-square" />}
+                                    {
+                                        option.checked ?
+                                            <span><b>{option.name}</b> <span className="event-count">({option.number})</span></span>
+                                            : <span>{option.name} <span className="event-count">({option.number})</span></span>
+                                    }
+                                    <input type="checkbox" checked={option.checked} onChange={() => {checkboxHandler(option.name)}} />
+                                </label>
+                            </li>
+                        )
+                    }
                 </ul>
             </div>
             <div className="events-container col-12 col-sm-9 col-lg-9">

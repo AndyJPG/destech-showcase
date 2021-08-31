@@ -1,76 +1,146 @@
 @import "src/assets/sass/variables";
 
-.events-container {
+.important-events-container {
 
-  div, li, p, i {
-    border: 1px solid crimson;
-  }
-
-  .event-item {
-    padding: 0.5rem;
-    border: none;
+  .description {
     margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
 
-    p {
-      margin: 0;
+  // Events filter
+  .events-filter {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    div, li, p, i {
+      border: 1px solid crimson;
     }
 
-    .event-content {
-      width: 95%;
+    ul {
+      width: 100%;
+    }
 
-      .event-date {
-        font-size: 1rem;
-        font-weight: 500;
+    // Filter title
+    .filter-title {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+
+      span {
+        font-weight: 600;
       }
 
-      .event-name {
-        text-transform: capitalize;
-        font-size: 1.5rem;
-        line-height: 2rem;
-        margin: 0.5rem 0;
+      input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+      }
 
-        @media (min-width: 576px) {
-          font-size: 1.6rem;
+      .mobile-filter-icon {
+        margin-right: 0.2rem;
+        color: $secondary;
+      }
+
+      .screen-filter-icon {
+        display: none;
+        color: $secondary;
+      }
+    }
+
+    .list-group {
+      overflow: hidden;
+      transition: height 1s ease-in-out, opacity 1.5s ease-in-out;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+
+      .list-group-item {
+        border: none;
+        // Basic control style
+        .control {
+          display: block;
+          position: relative;
+          cursor: pointer;
+
+          // Hide default browser input
+          input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+          }
+
+          i {
+            margin-right: 0.5rem;
+          }
+
+          .fa-check-square {
+            color: $primary;
+          }
+
+          .fa-square {
+            color: $secondary;
+          }
+
+          .event-count {
+            font-weight: 300;
+          }
         }
       }
+    }
+  }
 
-      .event-location {
-        font-size: 0.8rem;
-        font-weight: 300;
+  .events-container {
 
-        @media (min-width: 576px) {
+    div, li, p, i {
+      border: 1px solid crimson;
+    }
+
+    .event-item {
+      padding: 0.5rem;
+      border: none;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+
+      p {
+        margin: 0;
+      }
+
+      .event-content {
+        width: 95%;
+
+        .event-date {
           font-size: 1rem;
+          font-weight: 500;
+        }
+
+        .event-name {
+          text-transform: capitalize;
+          font-size: 1.5rem;
+          line-height: 2rem;
+          margin: 0.5rem 0;
+
+          @media (min-width: 576px) {
+            font-size: 1.6rem;
+          }
+        }
+
+        .event-location {
+          font-size: 0.8rem;
+          font-weight: 300;
+
+          @media (min-width: 576px) {
+            font-size: 1rem;
+          }
         }
       }
+
+      i {
+        width: 5%;
+        font-size: 1.5rem;
+        text-align: right;
+        color: $primary;
+      }
     }
-
-    i {
-      width: 5%;
-      font-size: 1.5rem;
-      text-align: right;
-      color: $primary;
-    }
-  }
-}
-
-.events-filter {
-
-  div, li, p, i {
-    border: 1px solid crimson;
-  }
-
-  i {
-    color: $primary;
-  }
-
-  ul {
-    width: 100%;
-  }
-
-  .filter-title {
-    display: flex;
   }
 }
