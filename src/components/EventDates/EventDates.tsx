@@ -35,10 +35,11 @@ function EventDates() {
 
     const [filterOptions, setFilterOptions] = useState<Array<FilterOption>>(
         [
-            {name: "Upcoming", number: 3, checked: true},
-            {name: "Design", number: 10, checked: false},
-            {name: "Technology", number: 7, checked: false},
-            {name: "New innovations", number: 4, checked: false}
+            {name: "all", number: 10, checked: false},
+            {name: "upcoming", number: 3, checked: true},
+            {name: "design", number: 10, checked: false},
+            {name: "technology", number: 7, checked: false},
+            {name: "new innovations", number: 4, checked: false}
         ]
     );
 
@@ -46,11 +47,25 @@ function EventDates() {
 
     function checkboxHandler(name: string) {
         let newFilterOptions = [...filterOptions];
-        newFilterOptions.forEach((option) => {
-            if (option.name === name) {
-                option.checked = !option.checked;
-            }
-        });
+        if (name === "all") {
+            newFilterOptions.forEach((option) => {
+                if (option.name === name) {
+                    option.checked = !option.checked;
+                } else {
+                    option.checked = false;
+                }
+            });
+        } else {
+            newFilterOptions.forEach((option) => {
+                if (option.name === name) {
+                    option.checked = !option.checked;
+                }
+
+                if (option.name === "all") {
+                    option.checked = false;
+                }
+            });
+        }
         setFilterOptions(newFilterOptions);
     }
 

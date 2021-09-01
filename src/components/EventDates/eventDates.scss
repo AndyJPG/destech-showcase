@@ -72,6 +72,10 @@
             margin-right: 0.5rem;
           }
 
+          span {
+            text-transform: capitalize;
+          }
+
           .fa-check-square {
             color: $primary;
           }
@@ -89,6 +93,7 @@
   }
 
   .events-container {
+    padding-top: 1rem;
 
     div, li, p, i {
       border: 1px solid crimson;
