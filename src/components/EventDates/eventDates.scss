@@ -92,11 +92,16 @@
     }
   }
 
+  // Events containers
   .events-container {
     padding-top: 1rem;
 
     div, li, p, i {
       border: 1px solid crimson;
+    }
+
+    .link-container {
+      text-decoration: none;
     }
 
     .event-item {

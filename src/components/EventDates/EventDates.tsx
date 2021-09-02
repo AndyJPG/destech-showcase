@@ -1,6 +1,7 @@
 import './eventDates.scss';
 import * as React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 type Event = {
     eventName: string,
@@ -103,14 +104,16 @@ function EventDates() {
                 <ul className="list-group">
                     {
                         events.map((event) =>
-                            <li className="event-item list-group-item" key={event.eventName}>
-                                <div className="event-content">
-                                    <p className="event-date">{event.eventDate.toDateString()}</p>
-                                    <p className="event-name">{event.eventName}</p>
-                                    <p className="event-location">{event.eventLocation}</p>
-                                </div>
-                                <i className="fas fa-caret-right"/>
-                            </li>
+                            <Link className="link-container" to="/program">
+                                <li className="event-item list-group-item" key={event.eventName}>
+                                    <div className="event-content">
+                                        <p className="event-date">{event.eventDate.toDateString()}</p>
+                                        <p className="event-name">{event.eventName}</p>
+                                        <p className="event-location">{event.eventLocation}</p>
+                                    </div>
+                                    <i className="fas fa-caret-right"/>
+                                </li>
+                            </Link>
                         )
                     }
                 </ul>
