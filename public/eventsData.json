@@ -1,0 +1,56 @@
+{
+  "filterOptions": [
+    {
+      "name": "all",
+      "number": 3,
+      "checked": true
+    },
+    {
+      "name": "upcoming",
+      "number": 1,
+      "checked": false
+    },
+    {
+      "name": "design",
+      "number": 1,
+      "checked": false
+    },
+    {
+      "name": "technology",
+      "number": 1,
+      "checked": false
+    },
+    {
+      "name": "new innovations",
+      "number": 1,
+      "checked": false
+    }
+  ],
+  "events": [
+    {
+      "eventName": "full papers due",
+      "eventDate": "2016-09-09T00:00:00.000Z",
+      "eventLocation": "Deakin University Geelong Waterfront Campus Building K1",
+      "category": [
+        "upcoming"
+      ]
+    },
+    {
+      "eventName": "full paper notification",
+      "eventDate": "2016-09-30T00:00:00.000Z",
+      "eventLocation": "Deakin University Melbourne Burwood Campus Building U6",
+      "category": [
+        "technology",
+        "design"
+      ]
+    },
+    {
+      "eventName": "post-review full paper due",
+      "eventDate": "2016-10-28T00:00:00.000Z",
+      "eventLocation": "Deakin University Geelong Waterfront Campus Building D23",
+      "category": [
+        "new innovations"
+      ]
+    }
+  ]
+}
