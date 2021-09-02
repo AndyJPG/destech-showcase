@@ -11,10 +11,6 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 
-    div, li, p, i {
-      border: 1px solid crimson;
-    }
-
     ul {
       width: 100%;
     }
@@ -26,6 +22,11 @@
       justify-content: flex-end;
       padding-bottom: 0.5rem;
       padding-top: 0.5rem;
+      cursor: pointer;
+
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+      }
 
       span {
         font-weight: 600;
@@ -48,7 +49,7 @@
       }
     }
 
-    .list-group {
+    .events-filter-list {
       overflow: hidden;
       transition: height 1s ease-in-out, opacity 1.5s ease-in-out;
       border: 1px solid rgba(0, 0, 0, 0.125);
@@ -96,8 +97,8 @@
   .events-container {
     padding-top: 1rem;
 
-    div, li, p, i {
-      border: 1px solid crimson;
+    @media (min-width: 768px) {
+      padding-top: 3rem;
     }
 
     .link-container {
@@ -121,7 +122,19 @@
 
         .event-date {
           font-size: 1rem;
-          font-weight: 500;
+          font-weight: 600;
+          display: block;
+
+          @media (min-width: 768px) {
+            display: inline;
+          }
+        }
+
+        .event-categories {
+          text-transform: capitalize;
+          color: $primary;
+          font-weight: 600;
+          letter-spacing: 0.1rem;
         }
 
         .event-name {
@@ -136,6 +149,7 @@
         }
 
         .event-location {
+          text-decoration: underline;
           font-size: 0.8rem;
           font-weight: 300;
 
