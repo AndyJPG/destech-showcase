@@ -2,32 +2,33 @@
   "filterOptions": [
     {
       "name": "all",
-      "number": 3,
+      "number": 5,
       "checked": true
     },
     {
       "name": "upcoming",
-      "number": 1,
+      "number": 2,
       "checked": false
     },
     {
       "name": "design",
-      "number": 1,
+      "number": 2,
       "checked": false
     },
     {
       "name": "technology",
-      "number": 1,
+      "number": 2,
       "checked": false
     },
     {
       "name": "new innovations",
-      "number": 1,
+      "number": 3,
       "checked": false
     }
   ],
   "events": [
     {
+      "eventId": "e001",
       "eventName": "full papers due",
       "eventDate": "2016-09-09T00:00:00.000Z",
       "eventLocation": "Deakin University Geelong Waterfront Campus Building K1",
@@ -36,6 +37,18 @@
       ]
     },
     {
+      "eventId": "e012",
+      "eventName": "new technology introduction",
+      "eventDate": "2016-09-21T00:00:00.000Z",
+      "eventLocation": "Deakin University Geelong Waterfront Campus Building K3",
+      "category": [
+        "upcoming",
+        "technology",
+        "new innovations"
+      ]
+    },
+    {
+      "eventId": "e041",
       "eventName": "full paper notification",
       "eventDate": "2016-09-30T00:00:00.000Z",
       "eventLocation": "Deakin University Melbourne Burwood Campus Building U6",
@@ -45,10 +58,21 @@
       ]
     },
     {
+      "eventId": "e083",
       "eventName": "post-review full paper due",
       "eventDate": "2016-10-28T00:00:00.000Z",
       "eventLocation": "Deakin University Geelong Waterfront Campus Building D23",
       "category": [
+        "new innovations"
+      ]
+    },
+    {
+      "eventId": "e091",
+      "eventName": "design thinking & solutions",
+      "eventDate": "2016-11-01T00:00:00.000Z",
+      "eventLocation": "Deakin University Melbourne Burwood Campus Building U61",
+      "category": [
+        "design",
         "new innovations"
       ]
     }

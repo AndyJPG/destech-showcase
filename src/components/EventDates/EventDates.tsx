@@ -3,6 +3,7 @@ import * as React from 'react';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
+// Json data type
 type JsonData = {
     filterOptions: Array<{
         name: string,
@@ -10,6 +11,7 @@ type JsonData = {
         checked: boolean
     }>,
     events: Array<{
+        eventId: string,
         eventName: string,
         eventDate: string,
         eventLocation: string,
@@ -17,13 +19,16 @@ type JsonData = {
     }>
 }
 
+// Event type
 type Event = {
+    eventId: string,
     eventName: string,
     eventDate: Date,
     eventLocation: string,
     category: Array<string>
 }
 
+// Filter option type
 type FilterOption = {
     name: string,
     number: number,
@@ -41,30 +46,55 @@ function EventDates() {
 
     // Fetch data
     useEffect(() => {
-        if (events === undefined) {
-            fetch("eventsData.json")
-                .then(res => res.json())
-                .then((json: JsonData) => {
-                    setTimeout(() => {
-                        const eventsData: Array<Event> = json.events.map((event) => {
-                            return {
-                                eventName: event.eventName,
-                                eventDate: new Date(event.eventDate),
-                                eventLocation: event.eventLocation,
-                                category: event.category
-                            }
-                        });
-
-                        const filterOptionData: Array<FilterOption> = json.filterOptions;
-
-                        setFilterOptions(filterOptionData);
-                        setEvents(eventsData);
-                    }, 1000);
-
-                })
+        if (events === undefined && err === undefined) {
+            fetchEventsData()
                 .catch(err => setErr(err));
         }
     });
+
+    // Fetching events data
+    async function fetchEventsData() {
+        const response = await fetch("eventsData.json");
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const jsonResponse: JsonData = await response.json();
+
+        // Simulate fetching
+        // setTimeout(() => {
+        //     const eventsData: Array<Event> = jsonResponse.events.map((event) => {
+        //         return {
+        //             eventId: event.eventId,
+        //             eventName: event.eventName,
+        //             eventDate: new Date(event.eventDate),
+        //             eventLocation: event.eventLocation,
+        //             category: event.category
+        //         }
+        //     });
+        //
+        //     const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;
+        //
+        //     setFilterOptions(filterOptionData);
+        //     setEvents(eventsData);
+        // }, 2000);
+
+        const eventsData: Array<Event> = jsonResponse.events.map((event) => {
+            return {
+                eventId: event.eventId,
+                eventName: event.eventName,
+                eventDate: new Date(event.eventDate),
+                eventLocation: event.eventLocation,
+                category: event.category
+            }
+        });
+
+        const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;
+
+        setFilterOptions(filterOptionData);
+        setEvents(eventsData);
+    }
 
     // Filter list
     const [filterList, setFilterList] = useState<Array<string>>(["all"]);
@@ -141,28 +171,45 @@ function EventDates() {
     }
 
     // Get events list
-    function getEventsList(): Array<Event> {
+    function getEventsList(): React.ReactNode {
         // If evens haven't been fetch yet
         if (events === undefined) {
-            return [];
+            return <span>Loading</span>;
         }
+
+        let newEventsList = [...events];
 
         // If filter list has all
-        if (filterList.includes("all")) {
-            return events;
+        if (!filterList.includes("all")) {
+            // Filtered event list
+            newEventsList = events.filter((event) => {
+                for (let filterListIndex = 0; filterListIndex < filterList.length; filterListIndex++) {
+                    if (event.category.includes(filterList[filterListIndex])) {
+                        return true;
+                    }
+                }
+                return false;
+            });
         }
 
-        // Filtered event list
-        const newEventsList = events.filter((event) => {
-            for (let filterListIndex = 0; filterListIndex < filterList.length; filterListIndex++) {
-                if (event.category.includes(filterList[filterListIndex])) {
-                    return true;
-                }
-            }
-            return false;
-        });
+        // Events list
+        const eventsList = newEventsList.map((event) =>
+            <Link className="link-container" to="/program" key={event.eventId}>
+                <li className="event-item list-group-item">
+                    <div className="event-content">
+                        <p className="event-categories">
+                            {event.category.map((category, index) => index === 0 ? category : ", " + category)}
+                        </p>
+                        <p className="event-name">{event.eventName}</p>
+                        <p><span
+                            className="event-date">{event.eventDate.toDateString()}</span> @<span
+                            className="event-location">{event.eventLocation}</span></p>
+                    </div>
+                    <i className="fas fa-caret-right"/>
+                </li>
+            </Link>);
 
-        return newEventsList;
+        return eventsList;
     }
 
     return (
@@ -180,7 +227,6 @@ function EventDates() {
                     <span>Filters</span>
                     <i className="fa fa-caret-down screen-filter-icon"/>
                 </label>
-                {err ? "Fetching error" : null}
                 {filterOptions === undefined ? null :
                     <ul className="list-group events-filter-list"
                         style={{height: showFilter ? getFilterListHeight() : "0", opacity: showFilter ? "1" : "0"}}>
@@ -209,25 +255,7 @@ function EventDates() {
             </div>
             <div className="events-container col-12 col-sm-12 col-md-8 col-lg-9">
                 <ul className="list-group">
-                    {
-                        events === undefined ? "Loading..." :
-                            getEventsList().map((event) =>
-                                <Link className="link-container" to="/program" key={event.eventName}>
-                                    <li className="event-item list-group-item">
-                                        <div className="event-content">
-                                            <p className="event-categories">
-                                                {event.category.map((category, index) => index === 0 ? category : ", " + category)}
-                                            </p>
-                                            <p className="event-name">{event.eventName}</p>
-                                            <p><span
-                                                className="event-date">{event.eventDate.toDateString()}</span> @<span
-                                                className="event-location">{event.eventLocation}</span></p>
-                                        </div>
-                                        <i className="fas fa-caret-right"/>
-                                    </li>
-                                </Link>
-                            )
-                    }
+                    {err ? "Error fetching events data" : getEventsList()}
                 </ul>
             </div>
         </div>
