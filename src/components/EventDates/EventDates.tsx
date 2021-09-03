@@ -2,6 +2,7 @@ import './eventDates.scss';
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import ContentPlaceholder from "../ContentPlaceholder/ContentPlaceholder";
 
 // Json data type
 type JsonData = {
@@ -63,37 +64,22 @@ function EventDates() {
         const jsonResponse: JsonData = await response.json();
 
         // Simulate fetching
-        // setTimeout(() => {
-        //     const eventsData: Array<Event> = jsonResponse.events.map((event) => {
-        //         return {
-        //             eventId: event.eventId,
-        //             eventName: event.eventName,
-        //             eventDate: new Date(event.eventDate),
-        //             eventLocation: event.eventLocation,
-        //             category: event.category
-        //         }
-        //     });
-        //
-        //     const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;
-        //
-        //     setFilterOptions(filterOptionData);
-        //     setEvents(eventsData);
-        // }, 2000);
+        setTimeout(() => {
+            const eventsData: Array<Event> = jsonResponse.events.map((event) => {
+                return {
+                    eventId: event.eventId,
+                    eventName: event.eventName,
+                    eventDate: new Date(event.eventDate),
+                    eventLocation: event.eventLocation,
+                    category: event.category
+                }
+            });
 
-        const eventsData: Array<Event> = jsonResponse.events.map((event) => {
-            return {
-                eventId: event.eventId,
-                eventName: event.eventName,
-                eventDate: new Date(event.eventDate),
-                eventLocation: event.eventLocation,
-                category: event.category
-            }
-        });
+            const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;
 
-        const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;
-
-        setFilterOptions(filterOptionData);
-        setEvents(eventsData);
+            setFilterOptions(filterOptionData);
+            setEvents(eventsData);
+        }, 2000);
     }
 
     // Filter list
@@ -174,7 +160,11 @@ function EventDates() {
     function getEventsList(): React.ReactNode {
         // If evens haven't been fetch yet
         if (events === undefined) {
-            return <span>Loading</span>;
+            return <div>
+                <ContentPlaceholder/>
+                <ContentPlaceholder/>
+                <ContentPlaceholder/>
+            </div>;
         }
 
         let newEventsList = [...events];
@@ -218,6 +208,7 @@ function EventDates() {
                 published for desktop and
                 mobile using the sched.org conference app. Please keep an eye on this website for information about the
                 DesTech 2016 program.</p>
+            <ContentPlaceholder/>
             <div className="events-filter col-12 col-sm-12 col-md-4 col-lg-3">
                 <label className="filter-title">
                     <input type="checkbox" checked={showFilter} onChange={() => {
