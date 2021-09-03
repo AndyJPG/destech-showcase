@@ -106,16 +106,38 @@
     }
 
     .event-item {
+      position: relative;
       padding: 0.5rem;
       border: none;
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-      transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+      transition: .5s;
+      overflow: hidden;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: .5s;
+        background: $primary;
+        z-index: 0;
+      }
 
       &:hover, &:focus {
-        background: $primary;
+
+        &:before {
+          top: 0;
+        }
+
+        //border: 2px solid rgba(242, 117, 46, 0.5);
+        //padding-top: 1rem;
+        //padding-bottom: 1rem;
+        //background: $primary;
         color: white;
 
         .event-categories {
@@ -133,6 +155,7 @@
 
       .event-content {
         width: 95%;
+        z-index: 1;
 
         .event-date {
           font-size: 1rem;
@@ -179,6 +202,8 @@
         font-size: 1.5rem;
         text-align: right;
         color: $primary;
+        z-index: 1;
+        transition: .5s;
       }
     }
   }
