@@ -160,11 +160,13 @@ function EventDates() {
     function getEventsList(): React.ReactNode {
         // If evens haven't been fetch yet
         if (events === undefined) {
-            return <div>
-                <ContentPlaceholder/>
-                <ContentPlaceholder/>
-                <ContentPlaceholder/>
-            </div>;
+            return (
+                <div>
+                    <ContentPlaceholder eventPlaceholder={true}/>
+                    <ContentPlaceholder eventPlaceholder={true}/>
+                    <ContentPlaceholder eventPlaceholder={true}/>
+                </div>
+            );
         }
 
         let newEventsList = [...events];
@@ -208,7 +210,6 @@ function EventDates() {
                 published for desktop and
                 mobile using the sched.org conference app. Please keep an eye on this website for information about the
                 DesTech 2016 program.</p>
-            <ContentPlaceholder/>
             <div className="events-filter col-12 col-sm-12 col-md-4 col-lg-3">
                 <label className="filter-title">
                     <input type="checkbox" checked={showFilter} onChange={() => {
@@ -218,7 +219,7 @@ function EventDates() {
                     <span>Filters</span>
                     <i className="fa fa-caret-down screen-filter-icon"/>
                 </label>
-                {filterOptions === undefined ? null :
+                {filterOptions === undefined ? <ContentPlaceholder filterPlaceholder={true}/> :
                     <ul className="list-group events-filter-list"
                         style={{height: showFilter ? getFilterListHeight() : "0", opacity: showFilter ? "1" : "0"}}>
                         {

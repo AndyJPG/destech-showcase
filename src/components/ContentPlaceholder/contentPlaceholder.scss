@@ -1,5 +1,7 @@
+// General
 .timeline-wrapper {
-  margin: 1.5rem 0;
+  //margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
 
   .timeline-item {
     background: #fff;
@@ -45,6 +47,7 @@
         div {
           background: white;
           display: flex;
+          float: right;
         }
 
         .content-separator {
@@ -55,20 +58,46 @@
         .content-top {
           height: 24px;
           width: 80%;
-          float: right;
         }
 
         .content-mid {
           width: 40%;
-          float: right;
           height: 32px;
         }
 
         .content-bottom {
           height: 19px;
           width: 60%;
-          float: right;
         }
+      }
+    }
+  }
+}
+
+// Filter placeholder
+.filter-placeholder {
+  .timeline-item {
+    padding: 8px 16px;
+
+    .animated-background {
+
+      height: 120px;
+
+      .content {
+        height: 24px;
+        width: 100%;
+      }
+
+      .content-8 {
+        width: 80%;
+      }
+
+      .content-6 {
+        width: 60%;
+      }
+
+      .content-4 {
+        width: 40%;
       }
     }
   }
