@@ -1,31 +1,35 @@
 @import 'src/assets/sass/variables';
 
 .section-container {
-  border: 1px solid cornflowerblue;
-
-  > div {
-    border: 1px solid cornflowerblue;
-  }
 
   .content-container {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 
     .section-title-container {
-      border: 1px solid cornflowerblue;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
 
       .section-title-element {
-        border: 1px solid cornflowerblue;
         display: inline-block;
+        width: 20%;
+        margin-right: 5%;
+        max-width: 6.5rem;
+
+        @media (min-width: 576px) {
+          margin-right: 1.5rem;
+        }
       }
 
       .section-title {
         margin: 0;
         display: inline-block;
-        border: 1px solid cornflowerblue;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
+        width: 75%;
+
+        @media (min-width: 576px) {
+          width: calc(100% - 8rem);
+        }
       }
     }
   }

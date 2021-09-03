@@ -1,25 +1,206 @@
-.events-container {
-  border: 1px solid crimson;
+@import "src/assets/sass/variables";
 
-  div {
-    border: 1px solid crimson;
+.important-events-container {
+
+  .description {
+    margin-bottom: 1.5rem;
   }
 
-  .event-item {
-    border: none;
-    margin-bottom: 1rem;
-    border: 1px solid crimson;
+  // Events filter
+  .events-filter {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
-    p:first-child {
-      margin-bottom: 0.2rem;
-      border: 1px solid crimson;
+    ul {
+      width: 100%;
     }
 
-    p:last-child {
-      margin-bottom: 0;
-      text-transform: uppercase;
-      font-weight: 600;
-      border: 1px solid crimson;
+    // Filter title
+    .filter-title {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+      cursor: pointer;
+
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+      }
+
+      span {
+        font-weight: 600;
+      }
+
+      input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+      }
+
+      .mobile-filter-icon {
+        margin-right: 0.2rem;
+        color: $secondary;
+      }
+
+      .screen-filter-icon {
+        display: none;
+        color: $secondary;
+      }
+    }
+
+    .events-filter-list {
+      overflow: hidden;
+      transition: height 1s ease-in-out, opacity 1.5s ease-in-out;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+
+      .list-group-item {
+        border: none;
+        // Basic control style
+        .control {
+          display: block;
+          position: relative;
+          cursor: pointer;
+
+          // Hide default browser input
+          input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+          }
+
+          i {
+            margin-right: 0.5rem;
+          }
+
+          span {
+            text-transform: capitalize;
+          }
+
+          .fa-check-square {
+            color: $primary;
+          }
+
+          .fa-square {
+            color: $secondary;
+          }
+
+          .event-count {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+
+  // Events containers
+  .events-container {
+    padding-top: 1rem;
+
+    @media (min-width: 768px) {
+      padding-top: 3rem;
+    }
+
+    .link-container {
+      text-decoration: none;
+    }
+
+    .event-item {
+      position: relative;
+      padding: 0.5rem;
+      border: none;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      transition: .5s;
+      overflow: hidden;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: .5s;
+        background: $primary;
+        z-index: 0;
+      }
+
+      &:hover, &:focus {
+
+        &:before {
+          top: 0;
+        }
+
+        color: white;
+
+        .event-categories {
+          color: white !important;
+        }
+
+        i {
+          color: white;
+        }
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .event-content {
+        width: 95%;
+        z-index: 1;
+
+        .event-date {
+          font-size: 1rem;
+          font-weight: 600;
+          display: block;
+
+          @media (min-width: 768px) {
+            display: inline;
+          }
+        }
+
+        .event-categories {
+          text-transform: capitalize;
+          color: $primary;
+          font-weight: 600;
+          letter-spacing: 0.1rem;
+          transition: color 0.5s ease-in-out;
+        }
+
+        .event-name {
+          text-transform: capitalize;
+          font-size: 1.5rem;
+          line-height: 2rem;
+          margin: 0.5rem 0;
+
+          @media (min-width: 576px) {
+            font-size: 1.6rem;
+          }
+        }
+
+        .event-location {
+          text-decoration: underline;
+          font-size: 0.8rem;
+          font-weight: 300;
+
+          @media (min-width: 576px) {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      i {
+        width: 5%;
+        font-size: 1.5rem;
+        text-align: right;
+        color: $primary;
+        z-index: 1;
+        transition: .5s;
+      }
     }
   }
 }
