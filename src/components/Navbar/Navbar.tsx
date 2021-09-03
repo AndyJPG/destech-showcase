@@ -40,7 +40,9 @@ function Navbar() {
     });
 
     return (
-        <div className={"container-fluid nav-container" + (yPosition === 0 ? "" : " fixed-navbar")}>
+        <div
+            className={"container-fluid nav-container" + (yPosition === 0 ? "" : " fixed-navbar")}
+            style={{boxShadow: yPosition === 0 ? "" : "rgba(0, 0, 0, 0.1) 0 4px 12px"}}>
             <nav className="navbar navbar-expand-lg container-lg">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
