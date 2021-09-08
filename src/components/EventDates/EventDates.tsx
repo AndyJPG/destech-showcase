@@ -3,38 +3,8 @@ import * as React from 'react';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import ContentPlaceholder from "../ContentPlaceholder/ContentPlaceholder";
-
-// Json data type
-type JsonData = {
-    filterOptions: Array<{
-        name: string,
-        number: number,
-        checked: boolean
-    }>,
-    events: Array<{
-        eventId: string,
-        eventName: string,
-        eventDate: string,
-        eventLocation: string,
-        category: Array<string>
-    }>
-}
-
-// Event type
-type Event = {
-    eventId: string,
-    eventName: string,
-    eventDate: Date,
-    eventLocation: string,
-    category: Array<string>
-}
-
-// Filter option type
-type FilterOption = {
-    name: string,
-    number: number,
-    checked: boolean
-}
+import type { FilterOption, EventAndFilterJson } from "../../entities/Event";
+import { Event } from "../../entities/Event";
 
 function EventDates() {
 
@@ -55,24 +25,18 @@ function EventDates() {
 
     // Fetching events data
     async function fetchEventsData() {
-        const response = await fetch("eventsData.json");
+        const response = await fetch("data/eventsData.json");
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const jsonResponse: JsonData = await response.json();
+        const jsonResponse: EventAndFilterJson = await response.json();
 
         // Simulate fetching
         setTimeout(() => {
             const eventsData: Array<Event> = jsonResponse.events.map((event) => {
-                return {
-                    eventId: event.eventId,
-                    eventName: event.eventName,
-                    eventDate: new Date(event.eventDate),
-                    eventLocation: event.eventLocation,
-                    category: event.category
-                }
+                return new Event(event);
             });
 
             const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;

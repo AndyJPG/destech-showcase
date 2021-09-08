@@ -1,22 +1,45 @@
 import './insightSection.scss';
 import * as React from 'react';
-
-type Insight = {
-    img: string,
-    title: string
-}
+import { useState, useEffect } from "react";
+import type { Insight, InsightJson } from "../../entities/Insight";
 
 function InsightSection() {
 
-    const insights: Array<Insight> = [
-        { img: "assets/img/hero-image.jpg", title: "2016 keynote news" },
-        { img: "assets/img/hero-image.jpg", title: "proceedings, publishing & indexing"},
-        { img: "assets/img/hero-image.jpg", title: "some of last year's highlights" }
-    ]
+    const [insights, setInsights] = useState<Array<Insight> | undefined>(undefined);
+
+    useEffect(() => {
+        fetchInsightsData()
+            .catch(e => {
+                console.log(e);
+            })
+    });
+
+    async function fetchInsightsData() {
+        const response = await fetch("data/insights-data.json");
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const jsonResponse: InsightJson = await response.json();
+
+        // Simulate fetching
+        setTimeout(() => {
+            const insightsData: Array<Insight> = jsonResponse.insights.map((insight) => {
+                return {
+                    title: insight.title,
+                    img: insight.img
+                }
+            });
+
+            setInsights(insightsData);
+        }, 2000);
+    }
 
     return (
         <div className="row insights-container">
             {
+                insights != undefined ?
                 insights.map((insight) => {
                     return (
                         <div className="card col-sm-6 col-lg-4" key={insight.title}>
@@ -26,7 +49,7 @@ function InsightSection() {
                             </div>
                         </div>
                     )
-                })
+                }) : null
             }
         </div>
     )
