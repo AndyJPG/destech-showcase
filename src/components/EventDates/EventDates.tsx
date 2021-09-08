@@ -3,8 +3,7 @@ import * as React from 'react';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import ContentPlaceholder from "../ContentPlaceholder/ContentPlaceholder";
-import type { FilterOption, EventAndFilterJson } from "../../entities/Event";
-import { Event } from "../../entities/Event";
+import type { Event, EventJson, FilterOption } from "../../entities/Event";
 
 function EventDates() {
 
@@ -31,12 +30,18 @@ function EventDates() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const jsonResponse: EventAndFilterJson = await response.json();
+        const jsonResponse = await response.json();
 
         // Simulate fetching
         setTimeout(() => {
-            const eventsData: Array<Event> = jsonResponse.events.map((event) => {
-                return new Event(event);
+            const eventsData: Array<Event> = jsonResponse.events.map((event: EventJson) => {
+                return {
+                    eventId: event.eventId,
+                    eventName: event.eventName,
+                    eventDate: new Date(event.eventDate),
+                    eventLocation: event.eventLocation,
+                    category: event.category
+                };
             });
 
             const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;
