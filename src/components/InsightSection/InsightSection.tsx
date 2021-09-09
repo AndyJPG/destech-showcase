@@ -1,40 +1,27 @@
 import './insightSection.scss';
 import * as React from 'react';
 import { useState, useEffect } from "react";
-import type { Insight, InsightJson } from "../../entities/Insight";
+import type { Insight } from "../../entities/Insight";
+import fetchInsightsDataUseCase from "../../useCase/fetchInsightsDataUseCase";
 
 function InsightSection() {
 
     const [insights, setInsights] = useState<Array<Insight> | undefined>(undefined);
 
     useEffect(() => {
-        fetchInsightsData()
-            .catch(e => {
-                console.log(e);
-            })
-    });
+        if (insights === undefined) {
 
-    async function fetchInsightsData() {
-        const response = await fetch("data/insights-data.json");
+            // Simulate fetching delay
+            setTimeout(() => {
+                fetchInsightsDataUseCase()
+                    .then((insightsData: Array<Insight>) => {
+                        setInsights(insightsData)
+                    })
+                    .catch(err => console.log(err));
+            }, 2000);
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        const jsonResponse: InsightJson = await response.json();
-
-        // Simulate fetching
-        setTimeout(() => {
-            const insightsData: Array<Insight> = jsonResponse.insights.map((insight) => {
-                return {
-                    title: insight.title,
-                    img: insight.img
-                }
-            });
-
-            setInsights(insightsData);
-        }, 2000);
-    }
+    });
 
     return (
         <div className="row insights-container">
