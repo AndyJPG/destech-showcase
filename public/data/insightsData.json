@@ -1,0 +1,24 @@
+{
+  "insights": [
+    {
+      "title": "2016 keynote news",
+      "img": "assets/img/insights/insight-1.jpg",
+      "date": "2016-09-09T00:00:00.000Z"
+    },
+    {
+      "title": "proceedings, publishing & indexing",
+      "img": "assets/img/insights/insight-3.jpg",
+      "date": "2016-10-12T00:00:00.000Z"
+    },
+    {
+      "title": "some of last year's highlights",
+      "img": "assets/img/insights/insight-2.jpg",
+      "date": "2016-11-25T00:00:00.000Z"
+    },
+    {
+      "title": "annual report conference",
+      "img": "assets/img/insights/insight-4.jpg",
+      "date": "2016-12-01T00:00:00.000Z"
+    }
+  ]
+}

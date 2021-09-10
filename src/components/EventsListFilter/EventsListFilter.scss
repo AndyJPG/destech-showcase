@@ -1,0 +1,88 @@
+@import "src/assets/sass/variables";
+
+// Events filter
+.events-filter {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  ul {
+    width: 100%;
+  }
+
+  // Filter title
+  .filter-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      justify-content: flex-start;
+    }
+
+    span {
+      font-weight: 600;
+    }
+
+    input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .mobile-filter-icon {
+      margin-right: 0.2rem;
+      color: $secondary;
+    }
+
+    .screen-filter-icon {
+      display: none;
+      color: $secondary;
+    }
+  }
+
+  .events-filter-list {
+    overflow: hidden;
+    transition: height 1s ease-in-out, opacity 1.5s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+
+    .list-group-item {
+      border: none;
+      // Basic control style
+      .control {
+        display: block;
+        position: relative;
+        cursor: pointer;
+
+        // Hide default browser input
+        input {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+        }
+
+        i {
+          margin-right: 0.5rem;
+        }
+
+        span {
+          text-transform: capitalize;
+        }
+
+        .fa-check-square {
+          color: $primary;
+        }
+
+        .fa-square {
+          color: $secondary;
+        }
+
+        .event-count {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
