@@ -12,15 +12,6 @@ function InsightSection() {
     useEffect(() => {
         if (insights === undefined) {
 
-            // Simulate fetching delay
-            // setTimeout(() => {
-            //     fetchInsightsDataUseCase()
-            //         .then((insightsData: Array<Insight>) => {
-            //             setInsights(insightsData)
-            //         })
-            //         .catch(err => console.log(err));
-            // }, 2000);
-
             fetchInsightsDataUseCase()
                 .then((insightsData: Array<Insight>) => {
                     setInsights(insightsData)
@@ -33,7 +24,7 @@ function InsightSection() {
     return (
         <div className="row insights-container">
             {
-                insights != undefined ?
+                insights !== undefined ?
                     insights.map((insight) => {
                         return (
                             <div className="card-container col-sm-6 col-md-4 col-lg-3" key={insight.title}>

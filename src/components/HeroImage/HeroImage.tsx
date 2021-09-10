@@ -1,7 +1,6 @@
 import './heroImage.scss';
 import * as React from 'react';
 import { Carousel } from "react-bootstrap";
-import {cleanup} from "@testing-library/react";
 
 type Image = {
     src: string,
@@ -29,7 +28,7 @@ function HeroImage() {
 
         window.addEventListener("resize",() => {screenWidthMonitor(window.innerWidth);});
 
-        return function cleanup() {
+        return function clearnup() {
             window.removeEventListener("resize", () => {screenWidthMonitor(window.innerWidth);});
         };
     });
