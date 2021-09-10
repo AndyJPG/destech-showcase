@@ -38,14 +38,20 @@ function InsightSection() {
                         return (
                             <div className="card-container col-sm-6 col-md-4 col-lg-3" key={insight.title}>
                                 <div className="card">
-                                    <div className="card-img-container" style={{
-                                        background: `url(${insight.img})`,
-                                        backgroundSize: "cover",
-                                        backgroundPosition: "center"
-                                    }}>
-                                    </div>
+                                    <Link to={`/${insight.title}`}>
+                                        <div className="card-img-container" style={{
+                                            background: `url(${insight.img})`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center"
+                                        }}>
+                                            <div className="hover-shade" />
+                                            <i className="fas fa-link" />
+                                        </div>
+                                    </Link>
                                     <div className="card-body">
-                                        <h5 className="card-title">{insight.title}</h5>
+                                        <Link to={`/${insight.title}`} className="card-title-link">
+                                            <h5 className="card-title">{insight.title}</h5>
+                                        </Link>
                                     </div>
                                     <div className="card-footer">
                                         <hr/>
