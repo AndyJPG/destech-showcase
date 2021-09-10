@@ -31,9 +31,9 @@ function EventDates() {
             setTimeout(() => {
                 fetchEventsUseCase()
                     .then((res) => {
-                        const [events, filterOptions] = res;
+                        const { events, eventFilter } = res;
                         setEvents(events);
-                        setFilterOptions(filterOptions);
+                        setFilterOptions(eventFilter);
                     })
                     .catch(err => setErr(err));
             }, 2000);

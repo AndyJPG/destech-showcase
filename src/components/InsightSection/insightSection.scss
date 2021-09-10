@@ -1,22 +1,66 @@
-.insights-container {
-  div {
-    border: 1px solid forestgreen;
-  }
+@import "src/assets/sass/variables";
 
-  .card {
-    padding: 1rem 1rem;
+.insights-container {
+  //div {
+  //  border: 1px solid forestgreen;
+  //}
+
+  .card-container {
+    margin-bottom: 2rem;
 
     @media (min-width: 992px) {
-      padding: 2rem 2rem;
+      margin-bottom: 0;
     }
 
-    .card-img-top {
-      border-radius: 0;
-    }
+    .card {
+      height: 100%;
+      border: none;
+      padding: 0;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 
-    .card-title {
-      text-transform: uppercase;
-      letter-spacing: 0.05rem;
+      @media (min-width: 576px) {
+
+      }
+
+      @media (min-width: 992px) {
+
+      }
+
+      .card-img-container {
+        width: 100%;
+        padding-bottom: 100%;
+        background-size: cover;
+        background-position: center;
+
+        .card-img-top {
+          border-radius: 0;
+          height: 100%;
+        }
+      }
+
+      .card-body {
+        padding: 1rem 1rem;
+      }
+
+      .card-title {
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+        font-weight: 600;
+      }
+
+      hr {
+        //color: rgba(0, 0, 0, 1);
+        border-top: 2px solid $secondary;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        width: 20%;
+      }
+
+      .card-footer {
+        border: none;
+        background: transparent;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+      }
     }
   }
 }

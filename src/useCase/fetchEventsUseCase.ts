@@ -1,6 +1,6 @@
 import type { Event, EventJson, FilterOption } from "../entities/Event";
 
-async function fetchEventsUseCase(): Promise<[Array<Event>, Array<FilterOption>]>{
+async function fetchEventsUseCase(): Promise<{events: Array<Event>, eventFilter: Array<FilterOption>}>{
     const response = await fetch("data/eventsData.json");
 
     if (!response.ok) {
@@ -9,7 +9,9 @@ async function fetchEventsUseCase(): Promise<[Array<Event>, Array<FilterOption>]
 
     const jsonResponse = await response.json();
 
-    const eventsData: Array<Event> = jsonResponse.events.map((event: EventJson) => {
+    const eventsJsonData: Array<EventJson> = jsonResponse.events;
+
+    const eventsData: Array<Event> = eventsJsonData.map((event: EventJson) => {
         return {
             eventId: event.eventId,
             eventName: event.eventName,
@@ -21,7 +23,7 @@ async function fetchEventsUseCase(): Promise<[Array<Event>, Array<FilterOption>]
 
     const filterOptionData: Array<FilterOption> = jsonResponse.filterOptions;
 
-    return [eventsData, filterOptionData];
+    return {events: eventsData, eventFilter: filterOptionData};
 }
 
 export default fetchEventsUseCase;
