@@ -5,7 +5,7 @@
   //TODO: Change shape width based on screen ratio
 
   // Overall styling for shape container
-  $shape-size: 14rem;
+  $shape-size: 16rem;
   $one-half-shape-size: calc( #{$shape-size} / 2 );
   $one-fourth-shape-size: calc( #{$shape-size} / 4 );
   $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
@@ -32,38 +32,6 @@
     border-top: $one-half-shape-size solid transparent;
     border-bottom: $one-half-shape-size solid transparent;
     border-left: $one-fourth-shape-size solid $primary;
-  }
-
-  // Styling for image in shape container
-  .img-container {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    left: $neg-one-fourth-shape-size;
-    width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
-    clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
-  }
-
-  // Styling for thumbnail title when image is in place
-  .thumbnail-title {
-    text-transform: uppercase;
-    position: absolute;
-    bottom: 0;
-    left: $neg-one-fourth-shape-size;
-    width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
-    padding: 0 $one-fourth-shape-size;
-    height: $one-fourth-shape-size;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
-    color: white;
-    text-align: center;
-    clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
-
-    a {
-      color: white;
-      text-decoration: none;
-    }
   }
 
   // Styling for title in shape container
@@ -150,6 +118,53 @@
         border-radius: 0;
         text-transform: uppercase;
       }
+    }
+  }
+}
+
+.img-shape-container {
+  // Overall styling for shape container
+  $shape-size: 8.5rem;
+  $one-half-shape-size: calc( #{$shape-size} / 2 );
+  $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+  $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+  position: relative;
+  width: calc(#{$shape-size} * 0.75);
+  height: $shape-size;
+  color: white;
+  margin: 1rem auto;
+
+  // Styling for image in shape container
+  .img-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: $neg-one-fourth-shape-size;
+    width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+    clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
+  }
+
+  // Styling for thumbnail title when image is in place
+  .thumbnail-title {
+    font-size: $shape-size / 12;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    left: $neg-one-fourth-shape-size;
+    width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+    padding: 0 $one-fourth-shape-size;
+    height: $one-fourth-shape-size;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    color: white;
+    text-align: center;
+    clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
+
+    a {
+      color: white;
+      text-decoration: none;
     }
   }
 }

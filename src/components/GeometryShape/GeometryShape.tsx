@@ -41,21 +41,27 @@ function GeometryShape(props: Props) {
         }
     }
 
+    if (props.img) {
+        return (
+            <div className="img-shape-container" style={ shapeContainerStyle }>
+                {
+                    props.img ?
+                        <div className="img-container"
+                             style={{ background: `url("${ props.img }")`,
+                                 backgroundSize: "auto 100%",
+                                 backgroundRepeat: "no-repeat",
+                                 backgroundPosition: "center"}}>
+                        </div> : null
+                }
+
+                { thumbnailTitleComponent }
+            </div>
+        )
+    }
+
     return (
         <div className="shape-container" style={ shapeContainerStyle }>
             { props.img ? null : <span className="shape-before" /> }
-
-            {
-                props.img ?
-                    <div className="img-container"
-                                 style={{ background: `url("${ props.img }")`,
-                                     backgroundSize: "auto 100%",
-                                     backgroundRepeat: "no-repeat",
-                                     backgroundPosition: "center"}}>
-                    </div> : null
-            }
-
-            { thumbnailTitleComponent }
 
             {
                 props.title ?
