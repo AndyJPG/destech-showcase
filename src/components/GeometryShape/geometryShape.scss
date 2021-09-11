@@ -14,7 +14,6 @@
   width: calc(#{$shape-size} * 0.75);
   height: $shape-size;
   color: white;
-  margin: 1.5rem auto;
 
   .shape-before {
     position: absolute;
@@ -37,6 +36,7 @@
   // Styling for title in shape container
   .shape-title {
     padding: 2rem 1rem 0 1rem;
+    max-width: 450px;
   }
 
   // Shape container form style
@@ -45,12 +45,15 @@
     $shape-form-padding-lr: 0.8rem;
     $shape-form-font-size: 1.5rem;
     $shape-form-shape-one-half: calc(38px / 2);
+    padding: 0 1rem;
 
     .shape-container-input {
       $padding-top: 1rem;
 
       padding: $padding-top $shape-form-padding-lr 0 $shape-form-padding-lr;
       position: relative;
+      caret-color: $primary;
+      max-width: 18rem;
 
       input {
         width: 100%;
@@ -120,6 +123,384 @@
       }
     }
   }
+
+  @media (min-width: 636px) {
+    // Overall styling for shape container
+    $shape-size: 13.5rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+
+    .shape-before {
+      left: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-right: $one-fourth-shape-size solid $primary;
+    }
+
+    .shape-after {
+      right: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-left: $one-fourth-shape-size solid $primary;
+    }
+  }
+
+  @media (min-width: 768px) {
+    // Overall styling for shape container
+    $shape-size: 10rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+
+    .shape-before {
+      left: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-right: $one-fourth-shape-size solid $primary;
+    }
+
+    .shape-after {
+      right: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-left: $one-fourth-shape-size solid $primary;
+    }
+
+    .shape-title {
+      font-size: 1.2rem;
+      padding-top: 1rem;
+    }
+
+    // Shape container form style
+    .shape-container-form {
+      // Styling for input area
+      $shape-form-padding-lr: 0.8rem;
+      $shape-form-font-size: 1.5rem;
+      $shape-form-shape-one-half: calc(38px / 2);
+      padding: 0 1rem;
+
+      .shape-container-input {
+        $padding-top: 0rem;
+
+        padding: $padding-top $shape-form-padding-lr 0 $shape-form-padding-lr;
+        position: relative;
+        caret-color: $primary;
+        max-width: 18rem;
+
+        input {
+          width: 100%;
+          border: none;
+          font-size: $shape-form-font-size;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: $padding-top;
+          left: 0;
+          z-index: 9999;
+          border-top: $shape-form-shape-one-half solid transparent;
+          border-bottom: $shape-form-shape-one-half solid transparent;
+          border-right: $shape-form-padding-lr solid white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: $padding-top;
+          right: 0;
+          border-top: $shape-form-shape-one-half solid transparent;
+          border-bottom: $shape-form-shape-one-half solid transparent;
+          border-left: $shape-form-padding-lr solid white;
+        }
+      }
+
+      // Styling for submit button
+      .shape-container-button {
+        $button-height: 30px;
+
+        padding: 0.8rem $shape-form-padding-lr 0 $shape-form-padding-lr;
+        display: inline-block;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0.8rem;
+          left: 0;
+          border-top: calc(#{$button-height} / 2) solid transparent;
+          border-bottom: calc(#{$button-height} / 2) solid transparent;
+          border-right: $shape-form-padding-lr solid white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0.8rem;
+          right: 0;
+          border-top: calc(#{$button-height} / 2) solid transparent;
+          border-bottom: calc(#{$button-height} / 2) solid transparent;
+          border-left: $shape-form-padding-lr solid white;
+        }
+
+        button {
+          padding: 0 0.4rem;
+          font-size: 1rem;
+          height: $button-height;
+          font-weight: 600;
+          background: white;
+          color: $primary;
+          border-radius: 0;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    // Overall styling for shape container
+    $shape-size: 12rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+
+    .shape-before {
+      left: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-right: $one-fourth-shape-size solid $primary;
+    }
+
+    .shape-after {
+      right: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-left: $one-fourth-shape-size solid $primary;
+    }
+
+    .shape-title {
+      font-size: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    // Shape container form style
+    .shape-container-form {
+      // Styling for input area
+      $shape-form-padding-lr: 0.8rem;
+      $shape-form-font-size: 1.5rem;
+      $shape-form-shape-one-half: calc(38px / 2);
+      padding: 0 1rem;
+
+      .shape-container-input {
+        $padding-top: 0;
+
+        padding: $padding-top $shape-form-padding-lr 0 $shape-form-padding-lr;
+        position: relative;
+        caret-color: $primary;
+        max-width: 18rem;
+
+        input {
+          width: 100%;
+          border: none;
+          font-size: $shape-form-font-size;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: $padding-top;
+          left: 0;
+          z-index: 9999;
+          border-top: $shape-form-shape-one-half solid transparent;
+          border-bottom: $shape-form-shape-one-half solid transparent;
+          border-right: $shape-form-padding-lr solid white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: $padding-top;
+          right: 0;
+          border-top: $shape-form-shape-one-half solid transparent;
+          border-bottom: $shape-form-shape-one-half solid transparent;
+          border-left: $shape-form-padding-lr solid white;
+        }
+      }
+
+      // Styling for submit button
+      .shape-container-button {
+        padding: 1rem $shape-form-padding-lr 0 $shape-form-padding-lr;
+        display: inline-block;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 1rem;
+          left: 0;
+          border-top: calc(50px / 2) solid transparent;
+          border-bottom: calc(50px / 2) solid transparent;
+          border-right: $shape-form-padding-lr solid white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 1rem;
+          right: 0;
+          border-top: calc(50px / 2) solid transparent;
+          border-bottom: calc(50px / 2) solid transparent;
+          border-left: $shape-form-padding-lr solid white;
+        }
+
+        button {
+          padding: 0 0.8rem;
+          font-size: 1.2rem;
+          height: 50px;
+          font-weight: 600;
+          background: white;
+          color: $primary;
+          border-radius: 0;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    // Overall styling for shape container
+    $shape-size: 14rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+
+    .shape-before {
+      left: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-right: $one-fourth-shape-size solid $primary;
+    }
+
+    .shape-after {
+      right: $neg-one-fourth-shape-size;
+      border-top: $one-half-shape-size solid transparent;
+      border-bottom: $one-half-shape-size solid transparent;
+      border-left: $one-fourth-shape-size solid $primary;
+    }
+
+    .shape-title {
+      font-size: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    // Shape container form style
+    .shape-container-form {
+      // Styling for input area
+      $shape-form-padding-lr: 0.8rem;
+      $shape-form-font-size: 1.5rem;
+      $shape-form-shape-one-half: calc(38px / 2);
+      padding: 0 1rem;
+
+      .shape-container-input {
+        $padding-top: 1rem;
+
+        padding: $padding-top $shape-form-padding-lr 0 $shape-form-padding-lr;
+        position: relative;
+        caret-color: $primary;
+        max-width: 18rem;
+
+        input {
+          width: 100%;
+          border: none;
+          font-size: $shape-form-font-size;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: $padding-top;
+          left: 0;
+          z-index: 9999;
+          border-top: $shape-form-shape-one-half solid transparent;
+          border-bottom: $shape-form-shape-one-half solid transparent;
+          border-right: $shape-form-padding-lr solid white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: $padding-top;
+          right: 0;
+          border-top: $shape-form-shape-one-half solid transparent;
+          border-bottom: $shape-form-shape-one-half solid transparent;
+          border-left: $shape-form-padding-lr solid white;
+        }
+      }
+
+      // Styling for submit button
+      .shape-container-button {
+        padding: 1rem $shape-form-padding-lr 0 $shape-form-padding-lr;
+        display: inline-block;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 1rem;
+          left: 0;
+          border-top: calc(50px / 2) solid transparent;
+          border-bottom: calc(50px / 2) solid transparent;
+          border-right: $shape-form-padding-lr solid white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 1rem;
+          right: 0;
+          border-top: calc(50px / 2) solid transparent;
+          border-bottom: calc(50px / 2) solid transparent;
+          border-left: $shape-form-padding-lr solid white;
+        }
+
+        button {
+          padding: 0 0.8rem;
+          font-size: 1.2rem;
+          height: 50px;
+          font-weight: 600;
+          background: white;
+          color: $primary;
+          border-radius: 0;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 }
 
 .img-shape-container {
@@ -165,6 +546,118 @@
     a {
       color: white;
       text-decoration: none;
+    }
+  }
+
+  @media (min-width: 576px) {
+    $shape-size: 14rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+    margin: 2rem auto;
+
+    // Styling for image in shape container
+    .img-container {
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
+    }
+
+    // Styling for thumbnail title when image is in place
+    .thumbnail-title {
+      font-size: $shape-size / 12;
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      padding: 0 $one-fourth-shape-size;
+      height: $one-fourth-shape-size;
+      clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
+    }
+  }
+
+  @media (min-width: 768px) {
+    $shape-size: 10rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+    margin: 1.5rem auto;
+
+    // Styling for image in shape container
+    .img-container {
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
+    }
+
+    // Styling for thumbnail title when image is in place
+    .thumbnail-title {
+      font-size: $shape-size / 12;
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      padding: 0 $one-fourth-shape-size;
+      height: $one-fourth-shape-size;
+      clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
+    }
+  }
+
+  @media (min-width: 992px) {
+    $shape-size: 12rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+    margin: 1.5rem auto;
+
+    // Styling for image in shape container
+    .img-container {
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
+    }
+
+    // Styling for thumbnail title when image is in place
+    .thumbnail-title {
+      font-size: $shape-size / 14;
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      padding: 0 $one-fourth-shape-size;
+      height: $one-fourth-shape-size;
+      clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    $shape-size: 14rem;
+    $one-half-shape-size: calc( #{$shape-size} / 2 );
+    $one-fourth-shape-size: calc( #{$shape-size} / 4 );
+    $neg-one-fourth-shape-size: calc( #{$shape-size} / -4 );
+
+    width: calc(#{$shape-size} * 0.75);
+    height: $shape-size;
+    margin: 1.5rem auto;
+
+    // Styling for image in shape container
+    .img-container {
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
+    }
+
+    // Styling for thumbnail title when image is in place
+    .thumbnail-title {
+      font-size: $shape-size / 14;
+      left: $neg-one-fourth-shape-size;
+      width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
+      padding: 0 $one-fourth-shape-size;
+      height: $one-fourth-shape-size;
+      clip-path: polygon(calc(#{$one-fourth-shape-size} / 2) 0, calc(100% - #{$one-fourth-shape-size} / 2) 0, calc( 100% - #{$one-fourth-shape-size} ) 100%, $one-fourth-shape-size 100%);
     }
   }
 }
