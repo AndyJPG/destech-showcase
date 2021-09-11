@@ -1,12 +1,50 @@
 @import "src/assets/sass/variables";
 
 .newsletter-container {
-  border: 1px solid orange;
   margin-left: auto;
   margin-right: auto;
 
   > div {
-    border: 1px solid orange;
-    margin: auto 1.5rem;
+    margin: auto -0.4rem;
+
+    @media (min-width: 576px) {
+      margin: auto -0.4rem;
+    }
+
+    @media (min-width: 650px) {
+      margin: auto -1.4rem;
+    }
+
+    @media (min-width: 700px) {
+      margin: auto -2.2rem;
+    }
+
+    @media (min-width: 768px) {
+      margin: auto auto;
+    }
+
+    @media (min-width: 992px) {
+      margin: auto 0.4rem;
+
+      &:first-child {
+        margin-right: -1.6rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      margin: auto 0.4rem;
+
+      &:first-child {
+        margin-right: -2.2rem;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      margin: auto -0.3rem;
+
+      &:first-child {
+        margin-right: -4.4rem;
+      }
+    }
   }
 }
