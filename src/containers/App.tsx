@@ -6,20 +6,30 @@ import {
     Route
 } from "react-router-dom";
 
-import Authors from "./Authors/Authors";
 import Home from "./Home/Home";
+import NotFound404 from "./NotFound404/NotFound404";
+import PageContainer from "./PageContainer/PageContainer";
 
 class App extends React.Component<any, any> {
     render(): React.ReactNode {
         return (
             <div className="whole-content-container container-fluid">
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <Switch>
-                        <Route path="/authors">
-                            <Authors/>
+                        <Route exact path="/">
+                            <PageContainer>
+                                <Home/>
+                            </PageContainer>
                         </Route>
-                        <Route path="/">
-                            <Home/>
+                        <Route path="/404">
+                            <PageContainer>
+                                <NotFound404/>
+                            </PageContainer>
+                        </Route>
+                        <Route path="*">
+                            <PageContainer>
+                                <NotFound404/>
+                            </PageContainer>
                         </Route>
                     </Switch>
                 </Router>

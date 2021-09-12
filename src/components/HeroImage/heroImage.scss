@@ -4,7 +4,7 @@ $hero-background-color: white;
 
 .hero-container {
   background: $hero-background-color;
-  padding-top: 6rem;
+  padding-top: 1rem;
   padding-bottom: 4rem;
 
   //border: 1px solid crimson;
@@ -14,7 +14,7 @@ $hero-background-color: white;
   //}
 
   @media (min-width: 992px) {
-    padding-top: 8rem;
+    padding-top: 4rem;
     padding-bottom: 6rem;
   }
 

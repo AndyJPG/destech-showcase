@@ -39,7 +39,7 @@ function EventsList(props: Props) : React.ReactElement {
 
     // Events list
     const eventsList = newEventsList.map((event) =>
-        <Link className="link-container" to="/program" key={event.eventId}>
+        <Link className="link-container" to={"/" + event.eventName} key={event.eventId}>
             <li className="event-item list-group-item">
                 <div className="event-content">
                     <p className="event-categories">

@@ -1,5 +1,6 @@
 import './geometryShape.scss';
 import * as React from 'react';
+import { Link } from "react-router-dom";
 
 type Props = {
     title?: string,
@@ -31,7 +32,7 @@ function GeometryShape(props: Props) {
         if (props.url) {
             thumbnailTitleComponent =
                 <div className="thumbnail-title">
-                    <a href={props.url}>{ props.thumbnailTitle }</a>
+                    { props.thumbnailTitle }
                 </div>;
         } else {
             thumbnailTitleComponent =
@@ -42,6 +43,23 @@ function GeometryShape(props: Props) {
     }
 
     if (props.img) {
+        if (props.url) {
+            return (
+                <Link to={props.url}>
+                    <div className="img-shape-container" style={ shapeContainerStyle }>
+                        {
+                            props.img ?
+                                <div className="img-container">
+                                    <img src={props.img} alt="adf"/>
+                                </div> : null
+                        }
+
+                        { thumbnailTitleComponent }
+                    </div>
+                </Link>
+            )
+        }
+
         return (
             <div className="img-shape-container" style={ shapeContainerStyle }>
                 {

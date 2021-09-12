@@ -516,6 +516,14 @@
   color: white;
   margin: 1rem auto;
 
+  &:hover {
+    .img-container {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
   // Styling for image in shape container
   .img-container {
     height: 100%;
@@ -525,6 +533,11 @@
     left: $neg-one-fourth-shape-size;
     width: calc((#{$shape-size} * 0.75) + #{$one-half-shape-size});
     clip-path: polygon( $one-fourth-shape-size 0, calc(100% - #{$one-fourth-shape-size}) 0, 100% 50%, calc(100% - #{$one-fourth-shape-size}) 100%, $one-fourth-shape-size 100%, 0 50% );
+
+    img {
+      height: 100%;
+      transition: transform .5s;
+    }
   }
 
   // Styling for thumbnail title when image is in place
