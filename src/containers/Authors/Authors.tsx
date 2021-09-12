@@ -1,13 +1,9 @@
 import * as React from 'react';
 
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-
 function Authors() {
     return (
         <div>
-            <Navbar/>
-            <Footer/>
+            <h1>Authors page</h1>
         </div>
     )
 }

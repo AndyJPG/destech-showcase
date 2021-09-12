@@ -1,7 +1,7 @@
 import './navbarStyle.scss';
 import * as React from 'react';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 type Menu = {
     name: string,
@@ -12,12 +12,12 @@ function Navbar() {
 
     // Menu options
     const menu: Array<Menu> = [
-        { "name" : "home", "href" : "/home" },
-        { "name" : "authors", "href" : "/authors" },
-        { "name" : "program", "href" : "/program" },
-        { "name" : "registrations", "href" : "/registrations" },
-        { "name" : "about", "href" : "/about" },
-        { "name" : "contact us", "href" : "/contact-us" }
+        {"name": "home", "href": "/"},
+        {"name": "authors", "href": "/authors"},
+        {"name": "program", "href": "/program"},
+        {"name": "registrations", "href": "/registrations"},
+        {"name": "about", "href": "/about"},
+        {"name": "contact us", "href": "/contact-us"}
     ];
 
     // Window position
@@ -46,16 +46,20 @@ function Navbar() {
             <nav className="navbar navbar-expand-lg container-lg">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
-                        <img className="destech-logo" src={`/assets/img/logo/destech-logo-${yPosition === 0 ? "black" : "white"}.svg`} alt="Destech logo"/>
+                        <img className="destech-logo"
+                             src={`/assets/img/logo/destech-logo-${yPosition === 0 ? "black" : "white"}.svg`}
+                             alt="Destech logo"/>
                     </Link>
 
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"><i className="fas fa-bars"></i></span>
                     </button>
-                    
+
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            { menu.map(menu => <li className="nav-item" key={menu.href}>
+                            {menu.map(menu => <li className="nav-item" key={menu.href}>
                                 <Link className="nav-link" to={menu.href}>{menu.name}</Link>
                             </li>)}
                         </ul>
