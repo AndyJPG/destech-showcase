@@ -47,7 +47,7 @@ function Navbar() {
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
                         <img className="destech-logo"
-                             src={`/assets/img/logo/destech-logo-${yPosition === 0 ? "black" : "white"}.svg`}
+                             src={`${process.env.PUBLIC_URL}/assets/img/logo/destech-logo-${yPosition === 0 ? "black" : "white"}.svg`}
                              alt="Destech logo"/>
                     </Link>
 

@@ -22,9 +22,6 @@ class App extends React.Component<any, any> {
                                 <Home/>
                             </PageContainer>
                         </Route>
-                        <Route path="/authors">
-                            <Redirect to="/" />
-                        </Route>
                         <Route path="/404">
                             <PageContainer>
                                 <NotFound404/>

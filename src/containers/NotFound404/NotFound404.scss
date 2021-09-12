@@ -1,3 +1,11 @@
+.not-found-text-container {
+  margin-bottom: 4rem;
+
+  @media (min-width: 576px) {
+    margin-bottom: 0;
+  }
+}
+
 .not-found-img {
   width: 100%;
 }
